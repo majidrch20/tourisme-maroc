@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Méta-données -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronomie - Explore Morocco™</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo-maroc.png" alt="Logo" width="40" height="40" class="me-2" onerror="this.src='https://placehold.co/40x40?text=Logo'">
+                <div>
+                    Explore Morocco™
+                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                </div>
+                <img src="images/flag-morocco.png" alt="Drapeau" width="30" height="20" class="ms-2" onerror="this.src='https://placehold.co/30x20?text=Flag'">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                    <!-- Lien actif -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="gastronomie.html">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carte.html">Carte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    
+                    <li class="nav-item border-start ms-2 ps-2">
+                        <span class="nav-link" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+                            <span class="text-danger">FR</span> | EN | AR
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         EN-TÊTE DE LA PAGE
+         ========================================== -->
+    <section class="bg-light py-5 mt-4 border-bottom">
+        <div class="container text-center py-4">
+            <h1 class="display-4 fw-bold" style="color: var(--color-secondary);">Gastronomie marocaine : un voyage de saveurs</h1>
+            <p class="lead text-muted w-75 mx-auto mt-3">Reconnue mondialement, la cuisine marocaine est une cuisine riche, variée et traditionnelle, profondément marquée par l'utilisation d'épices subtiles, d'herbes fraîches et de savoir-faire ancestraux.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CARTES DES PLATS
+         ========================================== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                
+                <!-- Plat 1 : Couscous -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/couscous.jpg" class="card-img-top" alt="Couscous" onerror="this.src='https://placehold.co/400x300?text=Couscous'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Le Couscous</h5>
+                            <!-- Utilisation de badges Bootstrap pour classer les plats -->
+                            <span class="badge bg-danger mb-2">Traditionnel</span>
+                            <span class="badge bg-secondary">Familial</span>
+                            <p class="card-text small mt-2">Le plat emblématique du vendredi. Semoule fine, légumes variés, viandes et bouillon parfumé.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 2 : Tajine -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/tajine.jpg" class="card-img-top" alt="Tajine" onerror="this.src='https://placehold.co/400x300?text=Tajine'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Le Tajine</h5>
+                            <span class="badge bg-danger mb-2">Traditionnel</span>
+                            <span class="badge bg-success">Populaire</span>
+                            <p class="card-text small mt-2">Mijoté lentement dans son plat en terre cuite. Au poulet, bœuf, mouton ou poisson, souvent sucré-salé.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 3 : Pastilla -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Pastilla" onerror="this.src='https://placehold.co/400x300?text=Pastilla'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">La Pastilla</h5>
+                            <span class="badge bg-warning text-dark mb-2">Sucré-Salé</span>
+                            <span class="badge bg-danger">Festif</span>
+                            <p class="card-text small mt-2">Feuilleté croustillant farci au pigeon (ou poulet) et amandes, saupoudré de sucre glace et de cannelle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 4 : Thé à la menthe -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/culture.jpg" class="card-img-top" alt="Thé à la menthe" onerror="this.src='https://placehold.co/400x300?text=Thé+Menthe'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Thé à la menthe</h5>
+                            <span class="badge bg-success mb-2">Boisson</span>
+                            <span class="badge bg-info text-dark">Populaire</span>
+                            <p class="card-text small mt-2">Symbole de l'hospitalité marocaine. Servi très chaud et sucré, il accompagne chaque moment de la journée.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 5 : Harira -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Harira" onerror="this.src='https://placehold.co/400x300?text=Harira'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">La Harira</h5>
+                            <span class="badge bg-danger mb-2">Traditionnel</span>
+                            <p class="card-text small mt-2">Soupe riche à base de tomates, lentilles, pois chiches et viande. Incontournable pendant le mois de Ramadan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 6 : Msemen -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Msemen" onerror="this.src='https://placehold.co/400x300?text=Msemen'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Le Msemen</h5>
+                            <span class="badge bg-warning text-dark mb-2">Petit-déjeuner</span>
+                            <p class="card-text small mt-2">Crêpes feuilletées carrées, souvent servies avec du miel, du beurre ou de l'amlou au petit-déjeuner.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 7 : Rfissa -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Rfissa" onerror="this.src='https://placehold.co/400x300?text=Rfissa'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">La Rfissa</h5>
+                            <span class="badge bg-danger mb-2">Traditionnel</span>
+                            <span class="badge bg-secondary">Familial</span>
+                            <p class="card-text small mt-2">Plat réconfortant à base de fines crêpes découpées, recouvertes de poulet, de lentilles et d'épices (Ras el Hanout).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 8 : Poissons et fruits de mer -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/essaouira.jpg" class="card-img-top" alt="Poissons" onerror="this.src='https://placehold.co/400x300?text=Poissons'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Poissons du port</h5>
+                            <span class="badge bg-primary mb-2">Frais</span>
+                            <p class="card-text small mt-2">Sur la côte (Essaouira, Agadir, Safi), les fritures et grillades de poissons fraîchement pêchés sont un délice absolu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 9 : Pâtisseries -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Pâtisseries" onerror="this.src='https://placehold.co/400x300?text=Pâtisseries'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Pâtisseries</h5>
+                            <span class="badge bg-warning text-dark mb-2">Sucré</span>
+                            <p class="card-text small mt-2">Cornes de gazelle, chebakia, makrout... Des douceurs à base d'amandes, de miel et d'eau de fleur d'oranger.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 10 : Zaalouk -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Zaalouk" onerror="this.src='https://placehold.co/400x300?text=Zaalouk'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Le Zaalouk</h5>
+                            <span class="badge bg-success mb-2">Entrée</span>
+                            <span class="badge bg-info text-dark">Végétarien</span>
+                            <p class="card-text small mt-2">Délicieuse salade cuite à base d'aubergines, de tomates, d'ail, d'huile d'olive et de cumin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plat 11 : Brochettes -->
+                <div class="col">
+                    <div class="card card-custom h-100">
+                        <img src="images/gastronomie.jpg" class="card-img-top" alt="Brochettes" onerror="this.src='https://placehold.co/400x300?text=Brochettes'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Brochettes</h5>
+                            <span class="badge bg-dark mb-2">Street Food</span>
+                            <p class="card-text small mt-2">Viande hachée (kefta) ou morceaux de viande marinés et grillés au charbon de bois, servis dans un pain rond.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION EXPÉRIENCE CULINAIRE
+         ========================================== -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <h2 class="section-title text-danger">Expérience culinaire au Maroc</h2>
+                    <p>La gastronomie au Maroc n'est pas qu'une question de nourriture, c'est un véritable art de vivre :</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fas fa-users text-danger me-2"></i> <strong>Les repas en famille :</strong> Le repas est le moment sacré du partage. Souvent, on mange tous ensemble dans le même plat rond avec du pain.</li>
+                        <li class="mb-3"><i class="fas fa-mug-hot text-danger me-2"></i> <strong>Le thé à la menthe :</strong> Servi à tout moment de la journée, il s'agit d'un cérémonial symbole de bienvenue.</li>
+                        <li class="mb-3"><i class="fas fa-shopping-basket text-danger me-2"></i> <strong>Les marchés traditionnels :</strong> Flânez dans les souks pour découvrir les montagnes d'épices colorées et les étals d'olives.</li>
+                        <li class="mb-3"><i class="fas fa-fire text-danger me-2"></i> <strong>La cuisine de rue :</strong> Sur la place Jemaa el-Fna ou dans les ruelles, la street food marocaine (brochettes, escargots, jus d'orange) est incontournable.</li>
+                        <li class="mb-3"><i class="fas fa-concierge-bell text-danger me-2"></i> <strong>Les restaurants :</strong> Des petites échoppes populaires aux riads gastronomiques luxueux, il y en a pour tous les goûts.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 order-md-1 mt-4 mt-md-0">
+                    <img src="images/artisanat.jpg" class="img-fluid rounded shadow-lg" alt="Marché marocain" onerror="this.src='https://placehold.co/600x400?text=Marché+Marocain'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer-custom mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
+                    <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
+                    <div>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="destinations.html">Destinations</a></li>
+                        <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
+                        <li class="mb-2"><a href="carte.html">Carte Touristique</a></li>
+                        <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue Mohammed V, Rabat, Maroc</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> contact@exploremorocco.ma</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> +212 500 000 000</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <div class="text-center small pb-2">
+                &copy; 2026 Explore Morocco™ - Tous droits réservés. Projet étudiant.
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

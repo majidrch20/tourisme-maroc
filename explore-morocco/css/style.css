@@ -1,0 +1,279 @@
+/* =========================================================================
+   Fichier: style.css
+   Projet: Explore Morocco™ - Site officiel de l'Agence Nationale du Tourisme
+   Rôle: Définir la charte graphique et personnaliser les éléments Bootstrap
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. VARIABLES DE COULEURS (Charte Graphique Marocaine)
+   ------------------------------------------------------------------------- */
+:root {
+  /* Le rouge marocain est la couleur principale (drapeau) */
+  --color-primary: #c1272d;
+  
+  /* Le vert marocain est utilisé pour les accents (l'étoile du drapeau) */
+  --color-secondary: #006233;
+  
+  /* Un beige sable pour rappeler le désert et l'architecture traditionnelle */
+  --color-sand: #f4f1ea;
+  
+  /* Un noir doux pour un texte plus élégant et lisible que le noir pur */
+  --color-dark: #2b2b2b;
+  
+  /* Un blanc pur pour aérer le design */
+  --color-light: #ffffff;
+}
+
+/* -------------------------------------------------------------------------
+   2. STYLES GLOBAUX
+   ------------------------------------------------------------------------- */
+/* On applique une police sans-serif moderne, propre et lisible */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-dark);
+  background-color: var(--color-sand);
+  /* On s'assure qu'il y a de l'espace en haut pour la barre de navigation fixe */
+  padding-top: 76px;
+}
+
+/* Personnalisation de tous les liens pour supprimer le soulignement par défaut */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* -------------------------------------------------------------------------
+   3. BARRE DE NAVIGATION (HEADER)
+   ------------------------------------------------------------------------- */
+/* Style spécifique pour la barre de navigation principale */
+.navbar-custom {
+  background-color: var(--color-light);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+}
+
+/* Le texte du logo */
+.navbar-brand {
+  color: var(--color-primary) !important; /* Le rouge marocain pour le nom */
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Les liens du menu de navigation */
+.navbar-custom .nav-link {
+  color: var(--color-dark);
+  font-weight: 500;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+/* Effet au survol des liens du menu et lien actif */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+/* Petit texte officiel sous le logo */
+.official-text {
+  font-size: 0.75rem;
+  color: #666;
+  display: block;
+  margin-top: -5px;
+}
+
+/* -------------------------------------------------------------------------
+   4. SECTION HERO (Bannière d'accueil)
+   ------------------------------------------------------------------------- */
+/* Le conteneur principal de la grande image d'accueil */
+.hero-section {
+  position: relative;
+  background-image: url('../images/hero-maroc.jpg'); /* L'image de fond */
+  background-size: cover;
+  background-position: center;
+  height: 70vh; /* Prend 70% de la hauteur de l'écran */
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+}
+
+/* Un filtre sombre (overlay) pour que le texte blanc soit toujours lisible */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité */
+}
+
+/* Le contenu au-dessus de l'overlay */
+.hero-content {
+  position: relative;
+  z-index: 2; /* S'assure que le texte est au-dessus de l'overlay */
+}
+
+/* -------------------------------------------------------------------------
+   5. BOUTONS PERSONNALISÉS
+   ------------------------------------------------------------------------- */
+/* Bouton rouge principal */
+.btn-primary-custom {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Au survol, on assombrit légèrement le rouge */
+.btn-primary-custom:hover {
+  background-color: #a02025;
+  color: var(--color-light);
+}
+
+/* Bouton vert secondaire */
+.btn-secondary-custom {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Au survol du bouton vert */
+.btn-secondary-custom:hover {
+  background-color: #004d28;
+  color: var(--color-light);
+}
+
+/* -------------------------------------------------------------------------
+   6. CARTES (CARDS BOOTSTRAP)
+   ------------------------------------------------------------------------- */
+/* On ajoute une petite ombre et on arrondit les coins pour l'élégance */
+.card-custom {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Empêche l'image de dépasser des bords arrondis */
+  height: 100%; /* S'assure que toutes les cartes ont la même hauteur dans une ligne */
+}
+
+/* Effet interactif au survol : la carte monte légèrement */
+.card-custom:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* L'image de la carte s'agrandit légèrement au survol */
+.card-custom .card-img-top {
+  transition: transform 0.5s ease;
+  height: 200px; /* Hauteur fixe pour uniformiser l'affichage */
+  object-fit: cover; /* Recadre l'image proprement sans la déformer */
+}
+
+.card-custom:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* -------------------------------------------------------------------------
+   7. SECTIONS GÉNÉRALES
+   ------------------------------------------------------------------------- */
+/* Les sections principales de la page doivent être bien espacées */
+.section-padding {
+  padding: 60px 0;
+}
+
+/* Titres de section avec une décoration (un petit trait en dessous) */
+.section-title {
+  color: var(--color-primary);
+  font-weight: bold;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Le trait rouge ou vert en dessous du titre */
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  background-color: var(--color-secondary);
+}
+
+/* -------------------------------------------------------------------------
+   8. CARTE TOURISTIQUE INTERACTIVE (Page carte.html)
+   ------------------------------------------------------------------------- */
+/* Si l'image n'est pas dispo, on utilise des blocs cliquables */
+.region-block {
+  background-color: var(--color-light);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 5px solid var(--color-secondary);
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Indique visuellement qu'on peut cliquer */
+.region-block:hover {
+  background-color: var(--color-sand);
+}
+
+/* -------------------------------------------------------------------------
+   9. FOOTER (Pied de page)
+   ------------------------------------------------------------------------- */
+/* Style du pied de page : sombre et sérieux */
+.footer-custom {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 50px 0 20px 0;
+}
+
+/* Les liens dans le footer doivent être blancs */
+.footer-custom a {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* Au survol, ils deviennent blancs purs */
+.footer-custom a:hover {
+  color: var(--color-light);
+}
+
+/* -------------------------------------------------------------------------
+   10. BOUTON RETOUR EN HAUT (Back to top)
+   ------------------------------------------------------------------------- */
+/* Position fixe en bas à droite */
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Masqué par défaut (géré par JS) */
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  border-radius: 50%; /* Bouton rond */
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+/* Au survol du bouton retour en haut */
+#backToTopBtn:hover {
+  background-color: var(--color-primary);
+}
+
+/* =========================================================================
+   FIN DU FICHIER CSS
+   ========================================================================= */
