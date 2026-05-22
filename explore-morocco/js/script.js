@@ -77,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Si toutes les vérifications passent, on affiche un message de succès (Bootstrap alert)
             showAlert(alertDiv, "Merci pour votre message. Notre équipe vous répondra prochainement.", "success");
             
+            // NOUVEAUTÉ : Afficher également une popup (boîte de dialogue) claire au centre de l'écran
+            alert("Votre message a été envoyé avec succès ! Notre équipe (ENSATE) vous répondra très vite.");
+            
             // On vide le formulaire après le succès
             contactForm.reset();
         });
@@ -145,6 +148,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <p class="mb-0">${regionDesc}</p>
                                         </div>`;
                 
+                // --- NOUVEAUTÉ : Mise à jour de la carte Google Maps ---
+                const mapFrame = document.getElementById('mapFrame');
+                if (mapFrame) {
+                    // On récupère le lieu à chercher depuis l'attribut data-query
+                    const mapQuery = this.getAttribute('data-query');
+                    if (mapQuery) {
+                        // On met à jour l'iframe pour afficher la nouvelle région (avec zoom 6)
+                        mapFrame.src = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&t=&z=6&ie=UTF8&iwloc=&output=embed`;
+                    }
+                }
+
                 // Petit effet visuel : on scroll jusqu'à l'information
                 regionInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });

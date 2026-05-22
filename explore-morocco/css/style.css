@@ -81,49 +81,67 @@ a {
 }
 
 /* -------------------------------------------------------------------------
-   4. SECTION HERO (Bannière d'accueil)
+   4. SECTION HERO (Bannière d'accueil Moderne)
    ------------------------------------------------------------------------- */
-/* Le conteneur principal de la grande image d'accueil */
+/* Le conteneur principal de la grande image d'accueil avec dégradé intégré pour forcer le rechargement (cache bust) */
 .hero-section {
   position: relative;
-  background-image: url('../images/hero-maroc.jpg'); /* L'image de fond */
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%), url('../images/hero-maroc.jpg?v=modern');
   background-size: cover;
   background-position: center;
-  height: 70vh; /* Prend 70% de la hauteur de l'écran */
-  min-height: 500px;
+  height: 85vh; /* Plus grand pour un effet moderne */
+  min-height: 600px;
   display: flex;
   align-items: center;
   color: var(--color-light);
 }
 
-/* Un filtre sombre (overlay) pour que le texte blanc soit toujours lisible */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité */
-}
-
-/* Le contenu au-dessus de l'overlay */
+/* Le contenu au-dessus de l'image */
 .hero-content {
   position: relative;
-  z-index: 2; /* S'assure que le texte est au-dessus de l'overlay */
+  z-index: 2; 
+}
+
+/* --- ANIMATIONS MODERNES --- */
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -------------------------------------------------------------------------
    5. BOUTONS PERSONNALISÉS
    ------------------------------------------------------------------------- */
+/* Boutons modernes arrondis (Pill shape) */
+.btn-modern {
+  border-radius: 50px;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
 /* Bouton rouge principal */
 .btn-primary-custom {
   background-color: var(--color-primary);
   color: var(--color-light);
   border: none;
-  padding: 10px 25px;
-  font-weight: 600;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 /* Au survol, on assombrit légèrement le rouge */
@@ -277,3 +295,53 @@ a {
 /* =========================================================================
    FIN DU FICHIER CSS
    ========================================================================= */
+
+/* --- EN-TÊTE DE PAGE MODERNE (Subpages) --- */
+.page-header-modern {
+    /* Une couleur unique et élégante pour l'arrière-plan (Dégradé de rouge marocain) */
+    background: linear-gradient(135deg, var(--color-primary) 0%, #8a1a1f 100%);
+    padding: 100px 0 60px;
+    margin-bottom: 50px;
+    border-radius: 0 0 50px 50px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 10px 20px rgba(193, 39, 45, 0.15); /* Ombre colorée */
+}
+
+/* Décorations modernes (cercles en fond) */
+.page-header-modern::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+}
+.page-header-modern::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -5%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+}
+
+.page-header-modern h1 {
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    color: white !important; /* Le texte devient blanc pour contraster avec le fond */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.page-header-modern p {
+    color: rgba(255, 255, 255, 0.9); /* Texte en blanc légèrement transparent */
+    font-size: 1.15rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}

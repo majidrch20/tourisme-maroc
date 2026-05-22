@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <!-- Méta-données de base -->
@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo-maroc.png">
 </head>
 <body>
 
@@ -19,12 +20,12 @@
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="images/logo-maroc.png" alt="Logo" width="40" height="40" class="me-2" onerror="this.src='https://placehold.co/40x40?text=Logo'">
+                <img src="images/logo-maroc.png" alt="Logo" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
                     <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
-                <img src="images/flag-morocco.png" alt="Drapeau" width="30" height="20" class="ms-2" onerror="this.src='https://placehold.co/30x20?text=Flag'">
+                <img src="images/flag_of_morocco.svg" alt="Drapeau" width="30" height="20" class="ms-2">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
@@ -41,12 +42,6 @@
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    
-                    <li class="nav-item border-start ms-2 ps-2">
-                        <span class="nav-link" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">
-                            <span class="text-danger">FR</span> | EN | AR
-                        </span>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -55,10 +50,10 @@
     <!-- ==========================================
          EN-TÊTE DE LA PAGE (Page Header)
          ========================================== -->
-    <section class="bg-light py-5 mt-4 border-bottom">
-        <div class="container text-center py-4">
-            <h1 class="display-4 fw-bold text-danger">Les plus belles destinations du Maroc</h1>
-            <p class="lead text-muted w-75 mx-auto mt-3">Du nord au sud, le Maroc propose une diversité incroyable : des villes historiques impériales, des plages étendues, des montagnes majestueuses et la magie silencieuse du désert du Sahara.</p>
+    <section class="page-header-modern fade-in-up">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">Les plus belles destinations du Maroc</h1>
+            <p class="lead w-75 mx-auto delay-1">Du nord au sud, le Maroc propose une diversité incroyable : des villes historiques impériales, des plages étendues, des montagnes majestueuses et la magie silencieuse du désert du Sahara.</p>
         </div>
     </section>
 
@@ -73,11 +68,11 @@
                 <!-- Destination 1: Marrakech -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/marrakech.jpg" class="card-img-top" alt="Marrakech" onerror="this.src='https://placehold.co/600x400?text=Marrakech'">
+                        <img src="images/marrakech.jpg" class="card-img-top" alt="Marrakech">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Marrakech</h5>
                             <p class="card-text flex-grow-1">La ville ocre vous émerveillera avec la place Jemaa el-Fna, ses souks colorés, ses jardins paisibles et ses palais majestueux. Une ambiance traditionnelle incomparable.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -85,11 +80,11 @@
                 <!-- Destination 2: Fès -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/fes.jpg" class="card-img-top" alt="Fès" onerror="this.src='https://placehold.co/600x400?text=Fès'">
+                        <img src="images/fes.jpg" class="card-img-top" alt="Fès">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Fès</h5>
                             <p class="card-text flex-grow-1">Capitale spirituelle et culturelle. Perdez-vous dans son immense médina, admirez le travail de l'artisanat local et visitez la célèbre université Al Quaraouiyine.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -97,11 +92,11 @@
                 <!-- Destination 3: Rabat -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/rabat.jpg" class="card-img-top" alt="Rabat" onerror="this.src='https://placehold.co/600x400?text=Rabat'">
+                        <img src="images/rabat.webp" class="card-img-top" alt="Rabat">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Rabat</h5>
                             <p class="card-text flex-grow-1">Capitale du Maroc, mêlant avec harmonie ville moderne et patrimoine historique. Ne manquez pas la kasbah des Oudayas et la Tour Hassan.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -109,11 +104,11 @@
                 <!-- Destination 4: Casablanca -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/casablanca.jpg" class="card-img-top" alt="Casablanca" onerror="this.src='https://placehold.co/600x400?text=Casablanca'">
+                        <img src="images/casablanca.webp" class="card-img-top" alt="Casablanca">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Casablanca</h5>
                             <p class="card-text flex-grow-1">Cœur économique du pays. Admirez la gigantesque mosquée Hassan II posée sur l'océan, promenez-vous sur la Corniche et découvrez son architecture moderne.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -121,11 +116,11 @@
                 <!-- Destination 5: Chefchaouen -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/chefchaouen.jpg" class="card-img-top" alt="Chefchaouen" onerror="this.src='https://placehold.co/600x400?text=Chefchaouen'">
+                        <img src="images/chefchaouen.jpg" class="card-img-top" alt="Chefchaouen">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Chefchaouen</h5>
                             <p class="card-text flex-grow-1">Nichée dans les montagnes du Rif, la célèbre "ville bleue" offre un calme absolu et des ruelles pittoresques, idéales pour la photographie.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -133,11 +128,11 @@
                 <!-- Destination 6: Essaouira -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/essaouira.jpg" class="card-img-top" alt="Essaouira" onerror="this.src='https://placehold.co/600x400?text=Essaouira'">
+                        <img src="images/essaouira.jfif" class="card-img-top" alt="Essaouira">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Essaouira</h5>
                             <p class="card-text flex-grow-1">La cité des alizés. Une ambiance détendue avec sa plage prisée des surfeurs, sa charmante médina blanche et bleue, son port de pêche et la musique gnaoua.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -145,11 +140,11 @@
                 <!-- Destination 7: Tanger -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/tanger.jpg" class="card-img-top" alt="Tanger" onerror="this.src='https://placehold.co/600x400?text=Tanger'">
+                        <img src="images/tanger.webp" class="card-img-top" alt="Tanger">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Tanger</h5>
                             <p class="card-text flex-grow-1">La porte de l'Afrique. Découvrez son port mythique, le Cap Spartel où se rencontrent la Méditerranée et l'Atlantique, et les mystérieuses grottes d'Hercule.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -157,11 +152,11 @@
                 <!-- Destination 8: Agadir -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/agadir.jpg" class="card-img-top" alt="Agadir" onerror="this.src='https://placehold.co/600x400?text=Agadir'">
+                        <img src="images/agadir.jpg" class="card-img-top" alt="Agadir">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Agadir</h5>
                             <p class="card-text flex-grow-1">Première station balnéaire du Maroc. Profitez d'un ensoleillement exceptionnel toute l'année sur sa grande plage de sable fin.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -169,11 +164,11 @@
                 <!-- Destination 9: Merzouga -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/sahara.jpg" class="card-img-top" alt="Merzouga" onerror="this.src='https://placehold.co/600x400?text=Merzouga'">
+                        <img src="images/merzouga.webp" class="card-img-top" alt="Merzouga">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Merzouga</h5>
                             <p class="card-text flex-grow-1">La porte du grand sud. Partez à dos de dromadaire sur les impressionnantes dunes de l'Erg Chebbi et dormez en bivouac sous un ciel étoilé.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -181,11 +176,11 @@
                 <!-- Destination 10: Ouarzazate -->
                 <div class="col">
                     <div class="card card-custom h-100">
-                        <img src="images/atlas.jpg" class="card-img-top" alt="Ouarzazate" onerror="this.src='https://placehold.co/600x400?text=Ouarzazate'">
+                        <img src="images/ouarzazate.jpg" class="card-img-top" alt="Ouarzazate">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Ouarzazate</h5>
                             <p class="card-text flex-grow-1">Le "Hollywood de l'Afrique". Visitez ses kasbahs grandioses, ses célèbres studios de cinéma et le village classé de l'Aït Ben Haddou.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -193,6 +188,8 @@
             </div>
         </div>
     </section>
+
+    <!-- MODAL POUR LES DESTINATIONS --> <div class="modal fade" id="cityModal" tabindex="-1" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered"> <div class="modal-content"> <div class="modal-header bg-danger text-white"> <h5 class="modal-title" id="cityModalLabel">Destination</h5> <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button> </div> <div class="modal-body text-center"> <img id="modalImage" src="" class="img-fluid rounded mb-3 shadow-sm" alt="Ville" style="max-height: 250px; object-fit: cover; width: 100%;"> <p id="modalDesc" class="fs-5 text-muted"></p> </div> <div class="modal-footer justify-content-center"> <a href="activites.html" class="btn btn-danger">Voir les activités</a> <a href="carte.html" class="btn btn-outline-secondary">Voir sur la carte</a> </div> </div> </div> </div> <script> document.addEventListener("DOMContentLoaded", function() { document.querySelectorAll(".discover-btn").forEach(btn => { btn.addEventListener("click", function() { const card = this.closest(".card"); document.getElementById("cityModalLabel").innerText = "Bienvenue à " + card.querySelector(".card-title").innerText; document.getElementById("modalDesc").innerText = card.querySelector(".card-text").innerText; document.getElementById("modalImage").src = card.querySelector("img").src; }); }); }); </script>
 
     <!-- ==========================================
          FOOTER
@@ -204,10 +201,10 @@
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
                     <div>
-                        <a href="#" class="me-3 fs-5"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="me-3 fs-5"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="fs-5"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/VisitMoroccoEN" target="_blank" class="me-3 fs-5" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/visit_morocco_/" target="_blank" class="me-3 fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Visit_Morocco_" target="_blank" class="me-3 fs-5" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/visitmorocco" target="_blank" class="fs-5" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -222,9 +219,9 @@
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
                     <ul class="list-unstyled small">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue Mohammed V, Rabat, Maroc</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> contact@exploremorocco.ma</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> +212 500 000 000</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue de la Palestine Mhanech I, Tétouan, Maroc</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> ensate@uae.ac.ma</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> 05 39 688 027</li>
                     </ul>
                     <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
                 </div>
