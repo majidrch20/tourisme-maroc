@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <!-- Méta-données -->
@@ -7,9 +7,13 @@
     <title>Carte Touristique - Explore Morocco™</title>
     
     <!-- CSS -->
+    <!-- On utilise Bootstrap pour que le site s'adapte à toutes les tailles d'écran -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome nous donne accès à des icônes pratiques comme les épingles de carte ou les flèches -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé pour les couleurs et styles spécifiques au projet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- L'icône qui apparaît dans l'onglet du navigateur -->
     <link rel="icon" type="image/png" href="images/logo-maroc.png">
 </head>
 <body>
@@ -17,31 +21,38 @@
     <!-- ==========================================
          HEADER
          ========================================== -->
+    <!-- Cette partie représente la barre de navigation principale du site -->
+    <!-- La classe "fixed-top" fait que la navbar reste visible même quand on fait défiler la page -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
+            <!-- Le logo et le nom du site, qui redirigent vers la page d'accueil au clic -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo-maroc.png" alt="Logo" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
-                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                    <span class="official-text" data-i18n="nav_subtitle">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
+                <!-- Le drapeau marocain affiché à côté du logo pour l'identité visuelle -->
                 <img src="images/flag_of_morocco.svg" alt="Drapeau" width="30" height="20" class="ms-2">
             </a>
             
+            <!-- Ce bouton apparaît uniquement sur mobile pour afficher/masquer le menu -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
+            <!-- La liste de tous les liens de navigation vers les autres pages du site -->
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gastronomie.html">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gastronomie.html" data-i18n="nav_gastronomie">Gastronomie</a></li>
                     <!-- Lien actif -->
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="carte.html">Carte</a></li>
+                    <!-- La classe "active" indique à l'utilisateur sur quelle page il se trouve actuellement -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="carte.html" data-i18n="nav_carte">Carte</a></li>
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -50,6 +61,7 @@
     <!-- ==========================================
          EN-TÊTE DE LA PAGE
          ========================================== -->
+    <!-- Cette section sert d'introduction visuelle à la page, avec un titre et une courte description -->
     <section class="page-header-modern fade-in-up">
         <div class="container text-center">
             <h1 class="display-4 mb-3">Carte touristique du Maroc</h1>
@@ -60,21 +72,26 @@
     <!-- ==========================================
          CARTE INTERACTIVE
          ========================================== -->
+    <!-- Cette section contient la carte Google Maps et les boutons de régions cliquables -->
     <section class="section-padding">
         <div class="container">
             <div class="row">
                 <!-- Colonne de gauche : Carte interactive Google Maps -->
+                <!-- On intègre Google Maps via une iframe pour afficher le Maroc directement sur la page -->
                 <div class="col-md-7 mb-4 mb-md-0 fade-in-up">
                     <div class="ratio ratio-4x3 shadow rounded overflow-hidden border">
+                        <!-- L'iframe charge la carte Google Maps en mode embarqué, sans besoin de clé API -->
                         <iframe id="mapFrame" src="https://maps.google.com/maps?q=Maroc&t=&z=5&ie=UTF8&iwloc=&output=embed" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
                 
                 <!-- Colonne de droite : Blocs régionaux cliquables -->
+                <!-- Chaque bloc représente une région du Maroc, l'utilisateur peut cliquer dessus -->
                 <div class="col-md-5">
                     <h3 class="mb-4 text-danger">Cliquez sur une région</h3>
                     
                     <!-- Les attributs data-name, data-desc et data-query sont utilisés par JavaScript -->
+                    <!-- Quand on clique sur un bloc, le JS lit ces attributs pour mettre à jour la carte et afficher la description -->
                     <div class="region-block shadow-sm" data-query="Tanger, Maroc" data-name="Nord du Maroc" data-desc="Une région au charme méditerranéen. Idéale pour découvrir l'histoire andalouse, flâner dans les ruelles bleues et profiter de la côte. Villes : Tanger, Chefchaouen, Tétouan.">
                         <h5 class="mb-0"><i class="fas fa-map-pin text-primary me-2"></i> Nord du Maroc</h5>
                     </div>
@@ -96,6 +113,7 @@
                     </div>
 
                     <!-- Div vide où le JavaScript va injecter le message au clic -->
+                    <!-- Quand l'utilisateur clique sur une région, le script.js affiche la description ici -->
                     <div id="regionInfo"></div>
                 </div>
             </div>
@@ -105,11 +123,14 @@
     <!-- ==========================================
          DÉTAILS DES RÉGIONS (Cartes Bootstrap)
          ========================================== -->
+    <!-- Cette section présente un résumé des 5 régions sous forme de cartes Bootstrap -->
     <section class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title text-center">Les atouts de chaque région</h2>
+            <!-- La grille Bootstrap affiche les cartes sur 3 colonnes en grand écran et 1 colonne sur mobile -->
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
                 
+                <!-- Carte de la région Nord -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-danger text-white fw-bold">Région Nord</div>
@@ -120,6 +141,7 @@
                     </div>
                 </div>
                 
+                <!-- Carte de la région Centre (Villes Impériales) -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-success text-white fw-bold">Centre (Impériales)</div>
@@ -130,6 +152,7 @@
                     </div>
                 </div>
 
+                <!-- Carte de la région Sud (Sahara) -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header" style="background-color: var(--color-dark); color: white;">Sud (Sahara)</div>
@@ -140,6 +163,7 @@
                     </div>
                 </div>
 
+                <!-- Carte de la Côte Atlantique -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-primary text-white fw-bold">Côte Atlantique</div>
@@ -150,6 +174,7 @@
                     </div>
                 </div>
 
+                <!-- Carte des Montagnes (Atlas) -->
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-header bg-secondary text-white fw-bold">Montagnes (Atlas)</div>
@@ -167,12 +192,15 @@
     <!-- ==========================================
          FOOTER
          ========================================== -->
+    <!-- Le footer contient les informations de contact, les liens rapides et les réseaux sociaux -->
     <footer class="footer-custom mt-5">
         <div class="container">
             <div class="row">
+                <!-- Première colonne : présentation du site et icônes des réseaux sociaux -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
+                    <!-- Liens vers les réseaux sociaux officiels du site, qui s'ouvrent dans un nouvel onglet -->
                     <div>
                         <a href="https://www.facebook.com/VisitMoroccoEN" target="_blank" class="me-3 fs-5" title="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/visit_morocco_/" target="_blank" class="me-3 fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -180,8 +208,9 @@
                         <a href="https://www.youtube.com/user/visitmorocco" target="_blank" class="fs-5" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                <!-- Deuxième colonne : liens rapides vers les autres pages du site -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_links">Liens Rapides</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="destinations.html">Destinations</a></li>
                         <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
@@ -189,26 +218,31 @@
                         <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
                     </ul>
                 </div>
+                <!-- Troisième colonne : coordonnées de contact et bouton vers la page contact -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_contact">Contact Officiel</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue de la Palestine Mhanech I, Tétouan, Maroc</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> ensate@uae.ac.ma</li>
                         <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> 05 39 688 027</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2" data-i18n="btn_contact">Nous contacter</a>
                 </div>
             </div>
             <hr class="border-secondary mt-4">
+            <!-- Mention du copyright en bas de page -->
             <div class="text-center small pb-2">
                 &copy; 2026 Explore Morocco™ - Tous droits réservés. Projet étudiant.
             </div>
         </div>
     </footer>
 
+    <!-- Bouton "retour en haut" qui apparaît quand l'utilisateur fait défiler vers le bas -->
     <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- Scripts JavaScript chargés à la fin du body pour ne pas ralentir le chargement de la page -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Notre script principal qui gère la carte interactive et le comportement de la page -->
     <script src="js/script.js"></script>
 </body>
 </html>

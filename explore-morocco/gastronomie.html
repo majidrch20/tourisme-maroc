@@ -1,76 +1,111 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- ==========================================
+         SECTION HEAD : Paramètres et ressources de la page
+         On charge ici toutes les bibliothèques CSS dont on a besoin.
+         L'ordre est important : Bootstrap d'abord, puis notre style.css
+         pour que nos règles personnalisées prennent le dessus sur Bootstrap.
+         ========================================== -->
+
     <!-- Méta-données -->
     <meta charset="UTF-8">
+    <!-- Indispensable pour que la page soit bien affichée sur les appareils mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gastronomie - Explore Morocco™</title>
     
     <!-- CSS -->
+    <!-- On utilise Bootstrap pour que le site s'adapte à toutes les tailles d'écran -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bibliothèque d'icônes FontAwesome pour les symboles visuels dans la page -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fichier CSS personnalisé, chargé en dernier pour avoir la priorité sur Bootstrap -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon : petite image qui s'affiche dans l'onglet du navigateur -->
     <link rel="icon" type="image/png" href="images/logo-maroc.png">
 </head>
 <body>
 
     <!-- ==========================================
-         HEADER
+         HEADER (Barre de navigation principale)
+         Cette partie représente la barre de navigation principale du site.
+         Elle est fixe en haut de la page grâce à "fixed-top" et
+         contient le logo ainsi que tous les liens vers les autres sections du site.
          ========================================== -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
+            <!-- Logo et titre du site, qui redirige vers la page d'accueil au clic -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo-maroc.png" alt="Logo" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
-                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                    <span class="official-text" data-i18n="nav_subtitle">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
+                <!-- Drapeau du Maroc affiché à côté du logo pour l'identité visuelle -->
                 <img src="images/flag_of_morocco.svg" alt="Drapeau" width="30" height="20" class="ms-2">
             </a>
             
+            <!-- Bouton hamburger visible seulement sur les petits écrans -->
+            <!-- Il permet d'afficher ou cacher le menu de navigation sur mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
+            <!-- Menu de navigation complet, réduit automatiquement sur mobile -->
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-                    <!-- Lien actif -->
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="gastronomie.html">Gastronomie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="carte.html">Carte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_accueil">Accueil</a></li>
+                    <!-- Ce lien permet à l'utilisateur d'aller vers la page des destinations -->
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+                    <!-- Lien actif : indique que l'utilisateur est actuellement sur la page Gastronomie -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="gastronomie.html" data-i18n="nav_gastronomie">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carte.html" data-i18n="nav_carte">Carte</a></li>
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- ==========================================
-         EN-TÊTE DE LA PAGE
+         EN-TÊTE DE LA PAGE (Bannière de présentation)
+         Cette section accueille le visiteur avec un titre et une description
+         de ce qu'il va découvrir sur la page : la gastronomie marocaine.
+         La classe "page-header-modern" lui donne un style visuel particulier défini dans style.css.
          ========================================== -->
     <section class="page-header-modern fade-in-up">
         <div class="container text-center">
+            <!-- Titre principal de la page gastronomie -->
             <h1 class="display-4 mb-3">Gastronomie marocaine : un voyage de saveurs</h1>
+            <!-- Description générale de la cuisine marocaine, centrée et limitée en largeur pour la lisibilité -->
             <p class="lead w-75 mx-auto delay-1">Reconnue mondialement, la cuisine marocaine est une cuisine riche, variée et traditionnelle, profondément marquée par l'utilisation d'épices subtiles, d'herbes fraîches et de savoir-faire ancestraux.</p>
         </div>
     </section>
 
     <!-- ==========================================
-         CARTES DES PLATS
+         SECTION CARTES DES PLATS
+         Cette section affiche les cartes des plats marocains.
+         Chaque carte contient une photo du plat, son nom, des badges Bootstrap
+         pour indiquer sa catégorie (traditionnel, sucré, street food, etc.)
+         et une courte description.
+         On utilise la grille Bootstrap pour avoir 4 colonnes sur grand écran.
          ========================================== -->
     <section class="section-padding">
         <div class="container">
+            <!-- La grille s'adapte : 1 colonne sur mobile, 3 sur tablette, 4 sur grand écran -->
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
                 
                 <!-- Plat 1 : Couscous -->
+                <!-- Le couscous est le plat national du vendredi, servi en famille -->
                 <div class="col">
                     <div class="card card-custom h-100">
+                        <!-- Image du plat pour donner envie au visiteur -->
                         <img src="images/couscous.jpg" class="card-img-top" alt="Couscous">
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Le Couscous</h5>
                             <!-- Utilisation de badges Bootstrap pour classer les plats -->
+                            <!-- Les badges permettent de voir rapidement le type du plat -->
                             <span class="badge bg-danger mb-2">Traditionnel</span>
                             <span class="badge bg-secondary">Familial</span>
                             <p class="card-text small mt-2">Le plat emblématique du vendredi. Semoule fine, légumes variés, viandes et bouillon parfumé.</p>
@@ -79,6 +114,7 @@
                 </div>
 
                 <!-- Plat 2 : Tajine -->
+                <!-- Le tajine est le plat le plus connu du Maroc à l'étranger -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/tajine.jpg" class="card-img-top" alt="Tajine">
@@ -92,6 +128,7 @@
                 </div>
 
                 <!-- Plat 3 : Pastilla -->
+                <!-- La pastilla est un plat festif sucré-salé très raffiné -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/pastilla.webp" class="card-img-top" alt="Pastilla">
@@ -105,6 +142,7 @@
                 </div>
 
                 <!-- Plat 4 : Thé à la menthe -->
+                <!-- Le thé à la menthe est le symbole de l'hospitalité marocaine -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/thé.jpg" class="card-img-top" alt="Thé à la menthe">
@@ -118,6 +156,7 @@
                 </div>
 
                 <!-- Plat 5 : Harira -->
+                <!-- La harira est une soupe traditionnelle incontournable pendant le Ramadan -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/harira.jpg" class="card-img-top" alt="Harira">
@@ -130,6 +169,7 @@
                 </div>
 
                 <!-- Plat 6 : Msemen -->
+                <!-- Le msemen est une crêpe feuilletée typique du petit-déjeuner marocain -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/msmen.jpg" class="card-img-top" alt="Msemen">
@@ -155,6 +195,7 @@
                 </div>
 
                 <!-- Plat 8 : Poissons et fruits de mer -->
+                <!-- Spécialité des villes côtières comme Essaouira, Agadir et Safi -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/poisson.jpg" class="card-img-top" alt="Poissons">
@@ -167,6 +208,7 @@
                 </div>
 
                 <!-- Plat 9 : Pâtisseries -->
+                <!-- Les pâtisseries marocaines sont connues pour leur finesse et leur richesse en amandes et miel -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/patisserie.jpeg" class="card-img-top" alt="Pâtisseries">
@@ -179,6 +221,7 @@
                 </div>
 
                 <!-- Plat 10 : Zaalouk -->
+                <!-- Le zaalouk est une salade cuite végétarienne, souvent servie en entrée -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/zaalouk.jfif" class="card-img-top" alt="Zaalouk">
@@ -192,6 +235,7 @@
                 </div>
 
                 <!-- Plat 11 : Brochettes -->
+                <!-- Les brochettes sont très populaires comme street food dans les médinas et souks -->
                 <div class="col">
                     <div class="card card-custom h-100">
                         <img src="images/brochette.avif" class="card-img-top" alt="Brochettes">
@@ -209,13 +253,18 @@
 
     <!-- ==========================================
          SECTION EXPÉRIENCE CULINAIRE
+         Cette section va au-delà des plats et explique la culture gastronomique marocaine :
+         les repas en famille, les marchés, la street food, etc.
+         Elle est présentée en deux colonnes : texte à droite et image à gauche.
          ========================================== -->
     <section class="section-padding bg-white">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Colonne de droite (sur grands écrans) : titre, texte et liste des expériences culinaires -->
                 <div class="col-md-6 order-md-2">
                     <h2 class="section-title text-danger">Expérience culinaire au Maroc</h2>
                     <p>La gastronomie au Maroc n'est pas qu'une question de nourriture, c'est un véritable art de vivre :</p>
+                    <!-- Liste des aspects culturels autour de la cuisine marocaine -->
                     <ul class="list-unstyled mt-4">
                         <li class="mb-3"><i class="fas fa-users text-danger me-2"></i> <strong>Les repas en famille :</strong> Le repas est le moment sacré du partage. Souvent, on mange tous ensemble dans le même plat rond avec du pain.</li>
                         <li class="mb-3"><i class="fas fa-mug-hot text-danger me-2"></i> <strong>Le thé à la menthe :</strong> Servi à tout moment de la journée, il s'agit d'un cérémonial symbole de bienvenue.</li>
@@ -224,6 +273,8 @@
                         <li class="mb-3"><i class="fas fa-concierge-bell text-danger me-2"></i> <strong>Les restaurants :</strong> Des petites échoppes populaires aux riads gastronomiques luxueux, il y en a pour tous les goûts.</li>
                     </ul>
                 </div>
+                <!-- Colonne de gauche (sur grands écrans) : image d'un marché marocain -->
+                <!-- Cette image est utilisée pour illustrer l'ambiance des marchés et souks marocains -->
                 <div class="col-md-6 order-md-1 mt-4 mt-md-0">
                     <img src="images/marché.webp" class="img-fluid rounded shadow-lg" alt="Marché marocain">
                 </div>
@@ -232,14 +283,18 @@
     </section>
 
     <!-- ==========================================
-         FOOTER
+         FOOTER (Pied de page)
+         Le footer contient les informations de contact et les liens des réseaux sociaux.
+         Il est commun à toutes les pages du site pour garder une cohérence dans la navigation.
          ========================================== -->
     <footer class="footer-custom mt-5">
         <div class="container">
             <div class="row">
+                <!-- Colonne 1 : Présentation du site et liens vers les réseaux sociaux -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
+                    <!-- Icônes cliquables des réseaux sociaux, chaque lien ouvre dans un nouvel onglet -->
                     <div>
                         <a href="https://www.facebook.com/VisitMoroccoEN" target="_blank" class="me-3 fs-5" title="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/visit_morocco_/" target="_blank" class="me-3 fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -247,8 +302,9 @@
                         <a href="https://www.youtube.com/user/visitmorocco" target="_blank" class="fs-5" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                <!-- Colonne 2 : Liens rapides vers les autres pages du site -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_links">Liens Rapides</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="destinations.html">Destinations</a></li>
                         <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
@@ -256,16 +312,18 @@
                         <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
                     </ul>
                 </div>
+                <!-- Colonne 3 : Coordonnées de contact avec adresse, email et numéro de téléphone -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_contact">Contact Officiel</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue de la Palestine Mhanech I, Tétouan, Maroc</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> ensate@uae.ac.ma</li>
                         <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> 05 39 688 027</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2" data-i18n="btn_contact">Nous contacter</a>
                 </div>
             </div>
+            <!-- Séparateur et texte de copyright au bas du footer -->
             <hr class="border-secondary mt-4">
             <div class="text-center small pb-2">
                 &copy; 2026 Explore Morocco™ - Tous droits réservés. Projet étudiant.
@@ -273,9 +331,12 @@
         </div>
     </footer>
 
+    <!-- Bouton flottant pour revenir rapidement en haut de la page, géré par le script JS -->
     <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- Script Bootstrap : indispensable pour le bon fonctionnement du menu mobile -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Notre script JS personnalisé pour les animations et le bouton de retour en haut -->
     <script src="js/script.js"></script>
 </body>
 </html>

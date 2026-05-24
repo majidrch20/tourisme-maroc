@@ -1,6 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- ==========================================
+         SECTION HEAD : Informations de la page
+         On met ici le titre, les métadonnées et les fichiers CSS nécessaires.
+         Cette section n'est pas visible par l'utilisateur, mais elle est très importante
+         pour le bon fonctionnement de la page.
+         ========================================== -->
+
     <!-- Méta-données de base pour le fonctionnement de la page -->
     <meta charset="UTF-8">
     <!-- Permet de rendre le site responsive sur les appareils mobiles -->
@@ -9,6 +16,7 @@
     <title>Explore Morocco™ - Accueil</title>
     
     <!-- Lien vers Bootstrap CSS (Framework CSS pour le design rapide et responsive) -->
+    <!-- On utilise Bootstrap pour que le site s'adapte à toutes les tailles d'écran -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Lien vers FontAwesome pour les icônes (réseaux sociaux, etc.) -->
@@ -16,27 +24,34 @@
     
     <!-- Lien vers notre fichier de style personnalisé (doit toujours être après Bootstrap pour l'écraser) -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Icône qui apparaît dans l'onglet du navigateur -->
     <link rel="icon" type="image/png" href="images/logo-maroc.png">
 </head>
 <body>
 
     <!-- ==========================================
          HEADER & NAVIGATION (Barre de menu)
+         Cette barre de navigation reste visible en haut de la page
+         même quand on fait défiler grâce à la classe "fixed-top".
+         Elle contient le logo du site et tous les liens vers les autres pages.
          ========================================== -->
     <!-- Navbar Bootstrap : sticky-top la garde visible au défilement -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <!-- Logo et nom du site à gauche -->
+            <!-- Ce lien ramène l'utilisateur à la page d'accueil quand il clique sur le logo -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo-maroc.png" alt="Logo Explore Morocco" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
-                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                    <span class="official-text" data-i18n="nav_subtitle">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
+                <!-- Drapeau du Maroc affiché à côté du nom du site -->
                 <img src="images/Flag_of_Morocco.svg" alt="Drapeau du Maroc" width="30" height="20" class="ms-2">
             </a>
             
             <!-- Bouton "Hamburger" pour les mobiles -->
+            <!-- Ce bouton s'affiche seulement sur petit écran, il permet d'ouvrir/fermer le menu -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,25 +60,20 @@
             <div class="collapse navbar-collapse" id="mainMenu">
                 <!-- ms-auto pousse le menu vers la droite -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gastronomie.html">Gastronomie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="carte.html">Carte</a></li>
+                    <!-- Chaque "nav-item" est un lien vers une page du site -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html" data-i18n="nav_accueil">Accueil</a></li>
+                    <!-- Ce lien permet à l'utilisateur d'aller vers la page des destinations -->
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+                    <!-- Lien vers la page gastronomie -->
+                    <li class="nav-item"><a class="nav-link" href="gastronomie.html" data-i18n="nav_gastronomie">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carte.html" data-i18n="nav_carte">Carte</a></li>
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a></li>
                     
                     <!-- Sélecteur de langue fictif (Design) -->
                     
-                    <!-- Champ de recherche simple -->
-                    <li class="nav-item ms-3">
-                        <form class="d-flex" role="search" onsubmit="event.preventDefault();">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control" type="search" placeholder="Rechercher..." aria-label="Search">
-                                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -71,17 +81,23 @@
 
     <!-- ==========================================
          SECTION HERO (Bannière Principale Moderne)
+         C'est la grande image d'accueil qu'on voit en premier quand on arrive sur le site.
+         Elle contient un titre accrocheur, une courte description et des boutons d'action
+         pour inviter le visiteur à explorer le site.
          ========================================== -->
     <section class="hero-section">
         <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 text-start fade-in-up">
+                    <!-- Titre principal du site, avec un style gras et une couleur d'accentuation jaune -->
                     <h1 class="display-2 fw-bold mb-4 text-white" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">
                         Explore Morocco™<br><span class="text-warning">Merveilles & Traditions</span>
                     </h1>
+                    <!-- Courte description pour donner envie au visiteur d'en savoir plus -->
                     <p class="lead mb-5 fs-4 text-light fade-in-up delay-1" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">
                         Entre villes impériales, désert du Sahara, montagnes grandioses et plages dorées, le Maroc vous offre un voyage inoubliable toute l'année.
                     </p>
+                    <!-- Deux boutons d'appel à l'action pour rediriger le visiteur vers les destinations ou les activités -->
                     <div class="fade-in-up delay-2 d-flex flex-wrap gap-3">
                         <a href="destinations.html" class="btn btn-primary-custom btn-modern shadow-lg">
                             <i class="fas fa-map-marked-alt me-2"></i> Nos Destinations
@@ -97,13 +113,17 @@
 
     <!-- ==========================================
          SECTION CARROUSEL (Bootstrap Carousel)
+         Cette section affiche un diaporama automatique d'images des lieux phares du Maroc.
+         Le visiteur peut aussi naviguer manuellement entre les images
+         grâce aux boutons "Précédent" et "Suivant".
          ========================================== -->
     <section class="section-padding bg-white">
         <div class="container">
             <h2 class="section-title text-center mx-auto d-block w-50">Lieux Incontournables</h2>
             
+            <!-- Composant Carrousel Bootstrap, l'attribut data-bs-ride="carousel" le rend automatique -->
             <div id="marocCarousel" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
-                <!-- Indicateurs en bas de l'image -->
+                <!-- Indicateurs en bas de l'image : petits points qui montrent quelle image est active -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#marocCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#marocCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -113,9 +133,12 @@
                 <!-- Images du carrousel -->
                 <div class="carousel-inner">
                     <!-- Slide 1 : Marrakech -->
+                    <!-- La classe "active" est obligatoire sur le premier slide pour que ça fonctionne -->
                     <div class="carousel-item active">
                         <!-- L'attribut onerror permet d'afficher une image par défaut si le fichier manque -->
+                        <!-- Cette image est utilisée pour montrer une destination touristique du Maroc -->
                         <img src="images/mrakch.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Marrakech">
+                        <!-- Légende superposée sur l'image, cachée sur mobile (d-none d-md-block) -->
                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
                             <h3>Marrakech</h3>
                             <p>La ville ocre, entre souks animés et palais majestueux.</p>
@@ -140,7 +163,7 @@
            
                 </div>
                 
-                <!-- Boutons Précédent / Suivant -->
+                <!-- Boutons Précédent / Suivant pour naviguer manuellement dans le carrousel -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#marocCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
@@ -155,16 +178,22 @@
 
     <!-- ==========================================
          SECTION POURQUOI VISITER
+         Cette section explique au visiteur les bonnes raisons de venir au Maroc.
+         On utilise des cartes Bootstrap (cards) avec des icônes FontAwesome
+         pour rendre la présentation visuelle et agréable.
          ========================================== -->
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title text-center">Pourquoi visiter le Maroc ?</h2>
-            <div class="row g-4 mt-3"> <!-- g-4 gère l'espacement entre les colonnes -->
+            <!-- g-4 gère l'espacement entre les colonnes -->
+            <div class="row g-4 mt-3">
                 
                 <!-- Carte 1 : Culture -->
+                <!-- Chaque carte met en avant un atout du Maroc avec une icône et une courte description -->
                 <div class="col-md-3">
                     <div class="card card-custom text-center p-3">
                         <div class="card-body">
+                            <!-- Icône FontAwesome représentant la culture et le patrimoine -->
                             <i class="fas fa-landmark fa-3x mb-3 text-danger"></i>
                             <h5 class="card-title">Culture Vivante</h5>
                             <p class="card-text">Un patrimoine riche, des médinas millénaires et un artisanat exceptionnel.</p>
@@ -176,6 +205,7 @@
                 <div class="col-md-3">
                     <div class="card card-custom text-center p-3">
                         <div class="card-body">
+                            <!-- Icône représentant la montagne pour symboliser la nature variée du Maroc -->
                             <i class="fas fa-mountain fa-3x mb-3 text-success"></i>
                             <h5 class="card-title">Nature Variée</h5>
                             <p class="card-text">De l'Atlas enneigé au désert aride, en passant par de superbes plages.</p>
@@ -211,13 +241,18 @@
 
     <!-- ==========================================
          SECTION APERÇU DU MAROC
+         Cette section présente un résumé des richesses du Maroc sous forme de liste.
+         Elle est disposée en deux colonnes : texte à gauche et image à droite,
+         grâce à la grille Bootstrap (col-md-6).
          ========================================== -->
     <section class="section-padding bg-white">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Colonne gauche : texte descriptif avec une liste des points forts du Maroc -->
                 <div class="col-md-6">
                     <h2 class="section-title">Aperçu du Maroc</h2>
                     <p class="lead">Le Maroc est un pays de contrastes, offrant une diversité incroyable :</p>
+                    <!-- Liste des attraits touristiques du Maroc avec des coches vertes pour chaque point -->
                     <ul class="list-group list-group-flush mb-4 shadow-sm rounded">
                         <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> <strong>Villes impériales :</strong> Fès, Marrakech, Meknès et Rabat.</li>
                         <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> <strong>Désert du Sahara :</strong> Dunes grandioses et bivouacs.</li>
@@ -226,9 +261,12 @@
                         <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> <strong>Médinas et souks :</strong> Immersion dans l'histoire et le commerce local.</li>
                         <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> <strong>Cuisine traditionnelle :</strong> Des saveurs épicées et parfumées.</li>
                     </ul>
+                    <!-- Bouton qui redirige l'utilisateur vers la page des destinations pour en savoir plus -->
                     <a href="destinations.html" class="btn btn-outline-danger">Lire la suite</a>
                 </div>
+                <!-- Colonne droite : image illustrant la culture marocaine -->
                 <div class="col-md-6 mt-4 mt-md-0">
+                    <!-- Cette image est utilisée pour illustrer visuellement la culture et la richesse du Maroc -->
                     <img src="images/culture.jpg" class="img-fluid rounded shadow-lg" alt="Culture du Maroc">
                 </div>
             </div>
@@ -237,14 +275,18 @@
 
     <!-- ==========================================
          SECTION RUBRIQUES (Cartes de navigation)
+         Cette section sert de menu visuel rapide pour accéder aux trois grandes rubriques du site.
+         Chaque carte contient une image, un titre et un bouton de navigation.
          ========================================== -->
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title text-center">Nos Rubriques Principales</h2>
             <div class="row g-4 mt-3">
                 <!-- Carte lien : Destinations -->
+                <!-- Cette carte permet à l'utilisateur d'aller directement vers la page des destinations -->
                 <div class="col-md-4">
                     <div class="card card-custom">
+                        <!-- Cette image montre la ville de Fès pour représenter les destinations -->
                         <img src="images/fes.jpg" class="card-img-top" alt="Destinations">
                         <div class="card-body text-center">
                             <h5 class="card-title">Destinations</h5>
@@ -254,6 +296,7 @@
                     </div>
                 </div>
                 <!-- Carte lien : Gastronomie -->
+                <!-- Cette carte permet à l'utilisateur d'aller vers la page de la gastronomie marocaine -->
                 <div class="col-md-4">
                     <div class="card card-custom">
                         <img src="images/tajine.jpg" class="card-img-top" alt="Gastronomie">
@@ -265,6 +308,7 @@
                     </div>
                 </div>
                 <!-- Carte lien : Activités -->
+                <!-- Cette carte redirige vers les activités disponibles pendant le voyage -->
                 <div class="col-md-4">
                     <div class="card card-custom">
                         <img src="images/artisanat.jpg" class="card-img-top" alt="Activités">
@@ -281,15 +325,17 @@
 
     <!-- ==========================================
          FOOTER (Pied de page)
+         Le footer contient les informations de contact, les liens rapides vers les pages du site
+         et les icônes des réseaux sociaux. Il apparaît en bas de chaque page.
          ========================================== -->
     <footer class="footer-custom mt-5">
         <div class="container">
             <div class="row">
-                <!-- Section Logo et Description -->
+                <!-- Section Logo et Description : présente brièvement le site -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
-                    <!-- Icônes des réseaux sociaux -->
+                    <!-- Icônes des réseaux sociaux cliquables qui ouvrent dans un nouvel onglet -->
                     <div>
                         <a href="https://www.facebook.com/VisitMoroccoEN" target="_blank" class="me-3 fs-5" title="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/visit_morocco_/" target="_blank" class="me-3 fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -297,9 +343,9 @@
                         <a href="https://www.youtube.com/user/visitmorocco" target="_blank" class="fs-5" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <!-- Section Liens rapides -->
+                <!-- Section Liens rapides : pour naviguer facilement depuis le footer -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_links">Liens Rapides</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="destinations.html">Destinations</a></li>
                         <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
@@ -307,15 +353,15 @@
                         <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
                     </ul>
                 </div>
-                <!-- Section Contact -->
+                <!-- Section Contact : adresse, email et téléphone du site -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_contact">Contact Officiel</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue de la Palestine Mhanech I, Tétouan, Maroc</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> ensate@uae.ac.ma</li>
                         <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> 05 39 688 027</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2" data-i18n="btn_contact">Nous contacter</a>
                 </div>
             </div>
             <!-- Ligne de séparation et copyright -->
@@ -330,8 +376,9 @@
     <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Script Bootstrap (Nécessaire pour le carrousel, le menu mobile, etc.) -->
+    <!-- Ce script doit être placé à la fin du body pour que la page charge plus vite -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Notre script personnalisé -->
+    <!-- Notre script personnalisé pour les interactions spécifiques au site -->
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -2,41 +2,68 @@
    Fichier: style.css
    Projet: Explore Morocco™ - Site officiel de l'Agence Nationale du Tourisme
    Rôle: Définir la charte graphique et personnaliser les éléments Bootstrap
+   =========================================================================
+   POUR LES ÉTUDIANTS :
+   Ce fichier CSS donne un "habillage" visuel à toutes les pages HTML.
+   Il s'appuie sur Bootstrap pour la mise en page (grille, responsive),
+   et ajoute des styles personnalisés pour coller à l'identité marocaine.
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
    1. VARIABLES DE COULEURS (Charte Graphique Marocaine)
+   -------------------------------------------------------------------------
+   Les variables CSS (--nom-variable) sont pratiques : au lieu de répéter
+   le même code couleur dans tout le fichier, on le définit une seule fois
+   ici et on le réutilise partout. Si on veut changer la couleur principale,
+   on n'a qu'à modifier UNE seule ligne !
    ------------------------------------------------------------------------- */
 :root {
-  /* Le rouge marocain est la couleur principale (drapeau) */
+  /* Le rouge marocain est la couleur principale (drapeau).
+     On l'utilisera pour les titres, boutons et liens importants. */
   --color-primary: #c1272d;
   
-  /* Le vert marocain est utilisé pour les accents (l'étoile du drapeau) */
+  /* Le vert marocain est utilisé pour les accents (l'étoile du drapeau).
+     Il représente l'espoir et la nature ; on l'utilise en couleur secondaire. */
   --color-secondary: #006233;
   
-  /* Un beige sable pour rappeler le désert et l'architecture traditionnelle */
+  /* Un beige sable pour rappeler le désert et l'architecture traditionnelle.
+     Cette couleur douce est parfaite comme fond de page car elle ne fatigue pas les yeux. */
   --color-sand: #f4f1ea;
   
-  /* Un noir doux pour un texte plus élégant et lisible que le noir pur */
+  /* Un noir doux pour un texte plus élégant et lisible que le noir pur (#000).
+     Le noir absolu peut sembler agressif ; un gris très foncé est plus confortable. */
   --color-dark: #2b2b2b;
   
-  /* Un blanc pur pour aérer le design */
+  /* Un blanc pur pour aérer le design et créer du contraste avec les éléments colorés. */
   --color-light: #ffffff;
 }
 
 /* -------------------------------------------------------------------------
    2. STYLES GLOBAUX
+   -------------------------------------------------------------------------
+   Ces règles s'appliquent à l'ensemble du site. Elles définissent les
+   paramètres de base : police, couleur du texte, et fond de page.
    ------------------------------------------------------------------------- */
-/* On applique une police sans-serif moderne, propre et lisible */
+
+/* On applique une police sans-serif moderne, propre et lisible sur tous les écrans.
+   "Segoe UI" est la police de Windows, suivie de remplaçants pour Mac et Linux.
+   Cela garantit que le texte sera toujours joli, peu importe l'ordinateur du visiteur. */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* On utilise notre variable de couleur sombre pour tout le texte du site */
   color: var(--color-dark);
+  /* Le fond sable donne une ambiance chaleureuse, inspirée du désert marocain */
   background-color: var(--color-sand);
-  /* On s'assure qu'il y a de l'espace en haut pour la barre de navigation fixe */
+  /* On s'assure qu'il y a de l'espace en haut pour la barre de navigation fixe.
+     Sans ce padding, le contenu se cacherait derrière la navbar ! */
   padding-top: 76px;
 }
 
-/* Personnalisation de tous les liens pour supprimer le soulignement par défaut */
+/* Personnalisation de tous les liens pour supprimer le soulignement par défaut.
+   Par défaut, les navigateurs affichent les liens soulignés ; ici on retire ça
+   pour un rendu plus propre et moderne.
+   La "transition" fait que si la couleur change (au survol), le changement
+   sera progressif (en 0.3 seconde) plutôt que brutal. */
 a {
   text-decoration: none;
   transition: color 0.3s ease;
@@ -44,73 +71,120 @@ a {
 
 /* -------------------------------------------------------------------------
    3. BARRE DE NAVIGATION (HEADER)
+   -------------------------------------------------------------------------
+   La navbar est le menu en haut de la page. Elle reste visible en permanence
+   grâce à la propriété "fixed" définie dans le HTML (Bootstrap).
+   Ici on lui ajoute notre style personnalisé.
    ------------------------------------------------------------------------- */
-/* Style spécifique pour la barre de navigation principale */
+
+/* Style spécifique pour la barre de navigation principale.
+   Elle a un fond blanc et une légère ombre en bas pour la démarquer
+   visuellement du reste de la page. */
 .navbar-custom {
   background-color: var(--color-light);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+  /* box-shadow crée une ombre portée : décalage X, décalage Y, flou, couleur.
+     Cela donne une impression de profondeur (la navbar "flotte" au-dessus du contenu). */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Le texte du logo */
+/* Le texte du logo "Explore Morocco" dans la navbar.
+   On force la couleur rouge avec "!important" car Bootstrap a ses propres
+   styles qu'il faut parfois surcharger. font-weight: 700 = texte en gras. */
 .navbar-brand {
-  color: var(--color-primary) !important; /* Le rouge marocain pour le nom */
+  color: var(--color-primary) !important;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-/* Les liens du menu de navigation */
+/* Les liens du menu de navigation (Accueil, Destinations, etc.).
+   On définit leur couleur, leur poids (500 = semi-gras) et un léger espace
+   entre eux (margin) pour qu'ils ne soient pas trop collés. */
 .navbar-custom .nav-link {
   color: var(--color-dark);
   font-weight: 500;
   margin: 0 5px;
+  /* La transition permet un changement de couleur en douceur au survol */
   transition: color 0.3s ease;
 }
 
-/* Effet au survol des liens du menu et lien actif */
+/* Effet au survol des liens du menu : la couleur passe au rouge marocain.
+   La même règle s'applique au lien "actif" (la page sur laquelle on se trouve)
+   pour que l'utilisateur sache toujours où il est dans le site. */
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
   color: var(--color-primary) !important;
 }
 
-/* Petit texte officiel sous le logo */
+/* Petit texte officiel affiché sous le logo (ex: "Agence Nationale du Tourisme").
+   On le rend petit (0.75rem) et gris pour qu'il soit visible mais discret.
+   Le margin-top négatif le rapproche du logo pour qu'ils forment un ensemble. */
 .official-text {
   font-size: 0.75rem;
   color: #666;
+  /* display: block force cet élément à s'afficher sur sa propre ligne */
   display: block;
   margin-top: -5px;
 }
 
 /* -------------------------------------------------------------------------
    4. SECTION HERO (Bannière d'accueil Moderne)
+   -------------------------------------------------------------------------
+   Le "Hero" est la grande image-bannière en haut de la page d'accueil.
+   C'est la première chose que voit le visiteur : elle doit être spectaculaire !
    ------------------------------------------------------------------------- */
-/* Le conteneur principal de la grande image d'accueil avec dégradé intégré pour forcer le rechargement (cache bust) */
+
+/* Le conteneur principal de la grande image d'accueil.
+   On superpose un dégradé noir semi-transparent SUR l'image pour que
+   le texte blanc soit lisible même sur une photo claire.
+   "?v=modern" à la fin de l'URL est une astuce pour forcer le navigateur
+   à recharger l'image (éviter le cache). */
 .hero-section {
+  /* position: relative permet de positionner des enfants avec z-index */
   position: relative;
+  /* linear-gradient crée le voile sombre, puis on met l'image derrière */
   background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%), url('../images/hero-maroc.jpg?v=modern');
+  /* cover = l'image remplit tout l'espace disponible sans se déformer */
   background-size: cover;
+  /* center = l'image est centrée même si elle est rognée */
   background-position: center;
-  height: 85vh; /* Plus grand pour un effet moderne */
+  /* 85vh = 85% de la hauteur de l'écran : grand et impactant */
+  height: 85vh;
+  /* min-height garantit une hauteur minimale sur les très petits écrans */
   min-height: 600px;
+  /* flexbox permet de centrer facilement le contenu verticalement */
   display: flex;
   align-items: center;
   color: var(--color-light);
 }
 
-/* Le contenu au-dessus de l'image */
+/* Le conteneur du texte (titre, sous-titre, boutons) positionné au-dessus de l'image.
+   z-index: 2 garantit que ce contenu est affiché devant le dégradé. */
 .hero-content {
   position: relative;
   z-index: 2; 
 }
 
-/* --- ANIMATIONS MODERNES --- */
+/* --- ANIMATIONS MODERNES ---
+   Ces classes CSS créent un effet d'apparition animée au chargement de la page.
+   Les éléments démarrent transparents et décalés vers le bas, puis remontent
+   et deviennent visibles. C'est ce qu'on appelle "fade in from bottom". */
 .fade-in-up {
+  /* On appelle l'animation "fadeInUp" définie avec @keyframes ci-dessous.
+     "forwards" = une fois l'animation terminée, l'élément garde son état final. */
   animation: fadeInUp 1s ease-out forwards;
+  /* L'élément commence invisible */
   opacity: 0;
+  /* L'élément commence décalé de 30px vers le bas */
   transform: translateY(30px);
 }
+/* Ces classes ajoutent un délai pour que les éléments apparaissent l'un après l'autre,
+   créant un effet en cascade très agréable visuellement. */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 
+/* Définition de l'animation "fadeInUp" :
+   Elle part de l'état transparent + décalé (défini ci-dessus sur .fade-in-up)
+   et arrive à l'état final : opacité 1 (visible) et position normale (translateY 0). */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -120,8 +194,15 @@ a {
 
 /* -------------------------------------------------------------------------
    5. BOUTONS PERSONNALISÉS
+   -------------------------------------------------------------------------
+   Bootstrap fournit des boutons de base, mais ici on les personnalise
+   pour qu'ils correspondent au style unique de notre site.
    ------------------------------------------------------------------------- */
-/* Boutons modernes arrondis (Pill shape) */
+
+/* Boutons modernes en forme de pilule (Pill shape = bords très arrondis).
+   border-radius: 50px crée un effet de pilule ovale très élégant.
+   text-transform: uppercase met le texte en MAJUSCULES automatiquement.
+   letter-spacing: 1px espace un peu les lettres pour un rendu aéré et pro. */
 .btn-modern {
   border-radius: 50px;
   padding: 12px 30px;
@@ -129,28 +210,35 @@ a {
   letter-spacing: 1px;
   font-size: 0.9rem;
   font-weight: 700;
+  /* "all 0.3s ease" signifie que TOUTES les propriétés CSS s'animeront en 0.3s */
   transition: all 0.3s ease;
 }
 
+/* Au survol du bouton moderne, il "saute" légèrement vers le haut (translateY(-3px))
+   et une ombre apparaît dessous. Cet effet donne l'impression que le bouton
+   est "soulevé" par le curseur — un micro-interaction très efficace ! */
 .btn-modern:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
 }
 
-/* Bouton rouge principal */
+/* Bouton rouge principal : fond rouge marocain, texte blanc, sans bordure.
+   C'est le bouton d'action principale (ex: "Découvrir nos destinations"). */
 .btn-primary-custom {
   background-color: var(--color-primary);
   color: var(--color-light);
   border: none;
 }
 
-/* Au survol, on assombrit légèrement le rouge */
+/* Au survol, on assombrit légèrement le rouge pour indiquer que le bouton
+   est interactif. L'utilisateur comprend instinctivement qu'il peut cliquer. */
 .btn-primary-custom:hover {
   background-color: #a02025;
   color: var(--color-light);
 }
 
-/* Bouton vert secondaire */
+/* Bouton vert secondaire : utilisé pour les actions moins prioritaires.
+   Le vert (#006233) est la couleur de l'étoile du drapeau marocain. */
 .btn-secondary-custom {
   background-color: var(--color-secondary);
   color: var(--color-light);
@@ -158,10 +246,12 @@ a {
   padding: 10px 25px;
   font-weight: 600;
   border-radius: 5px;
+  /* On anime seulement le fond (background-color) pour des performances optimales */
   transition: background-color 0.3s ease;
 }
 
-/* Au survol du bouton vert */
+/* Au survol du bouton vert, on passe à un vert encore plus foncé.
+   Même principe que le bouton rouge : feedback visuel pour l'utilisateur. */
 .btn-secondary-custom:hover {
   background-color: #004d28;
   color: var(--color-light);
@@ -169,53 +259,85 @@ a {
 
 /* -------------------------------------------------------------------------
    6. CARTES (CARDS BOOTSTRAP)
+   -------------------------------------------------------------------------
+   Les "cards" sont des boîtes qui présentent une destination ou une info.
+   Bootstrap fournit le composant de base ; on le personnalise ici.
    ------------------------------------------------------------------------- */
-/* On ajoute une petite ombre et on arrondit les coins pour l'élégance */
+
+/* Style de base des cartes :
+   - border: none supprime la bordure grise de Bootstrap
+   - border-radius: 10px arrondit les coins pour un effet plus doux et moderne
+   - box-shadow ajoute une légère ombre portée pour donner de la profondeur
+   - transition prépare les animations de survol
+   - overflow: hidden est TRÈS important : sans ça, l'image zoomerait en dehors
+     des bords arrondis et l'effet visuel serait raté !
+   - height: 100% force toutes les cartes d'une même ligne à avoir la même hauteur */
 .card-custom {
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Empêche l'image de dépasser des bords arrondis */
-  height: 100%; /* S'assure que toutes les cartes ont la même hauteur dans une ligne */
+  overflow: hidden;
+  height: 100%;
 }
 
-/* Effet interactif au survol : la carte monte légèrement */
+/* Effet interactif au survol de la carte :
+   La carte monte de 10px (translateY(-10px)) et l'ombre s'intensifie.
+   Cela donne une sensation de survol, comme si la carte "flottait". */
 .card-custom:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* L'image de la carte s'agrandit légèrement au survol */
+/* Image en haut de la carte :
+   - height: 200px fixe une hauteur identique pour toutes les images,
+     car les photos originales peuvent avoir des proportions très différentes.
+   - object-fit: cover recadre l'image pour qu'elle remplisse exactement
+     cet espace sans se déformer (comme un "zoom" centré sur l'image). */
 .card-custom .card-img-top {
   transition: transform 0.5s ease;
-  height: 200px; /* Hauteur fixe pour uniformiser l'affichage */
-  object-fit: cover; /* Recadre l'image proprement sans la déformer */
+  height: 200px;
+  object-fit: cover;
 }
 
+/* Au survol de la carte, l'image s'agrandit très légèrement (zoom de 5%).
+   Comme overflow: hidden est activé sur la carte parente, l'image ne
+   déborde pas — elle grossit "à l'intérieur" de la carte. Très élégant ! */
 .card-custom:hover .card-img-top {
   transform: scale(1.05);
 }
 
 /* -------------------------------------------------------------------------
    7. SECTIONS GÉNÉRALES
+   -------------------------------------------------------------------------
+   Ces classes s'appliquent aux grandes sections de contenu des pages.
    ------------------------------------------------------------------------- */
-/* Les sections principales de la page doivent être bien espacées */
+
+/* Les sections principales de la page doivent être bien espacées.
+   padding: 60px 0 signifie 60px en haut ET en bas, 0 à gauche et à droite.
+   Cela "respire" le contenu et évite une page trop compacte. */
 .section-padding {
   padding: 60px 0;
 }
 
-/* Titres de section avec une décoration (un petit trait en dessous) */
+/* Titres de section avec une décoration visuelle (un petit trait en dessous).
+   On utilise "position: relative" ici car l'élément pseudo "::after" ci-dessous
+   sera positionné de façon absolue par rapport à ce titre. */
 .section-title {
   color: var(--color-primary);
   font-weight: bold;
   margin-bottom: 40px;
   position: relative;
+  /* display: inline-block permet au trait "::after" de n'avoir que la largeur du texte */
   display: inline-block;
   padding-bottom: 10px;
 }
 
-/* Le trait rouge ou vert en dessous du titre */
+/* Le trait vert en dessous du titre, créé avec un pseudo-élément CSS.
+   "::after" insère un contenu virtuel APRÈS l'élément, sans toucher au HTML.
+   content: '' est obligatoire (même vide) pour que l'élément s'affiche.
+   position: absolute le place exactement en bas à gauche du titre.
+   Ce trait visuel aide l'œil à identifier rapidement les sections de la page. */
 .section-title::after {
   content: '';
   position: absolute;
@@ -228,8 +350,16 @@ a {
 
 /* -------------------------------------------------------------------------
    8. CARTE TOURISTIQUE INTERACTIVE (Page carte.html)
+   -------------------------------------------------------------------------
+   Ces blocs représentent les régions du Maroc sur la page de la carte.
+   Chaque région est un bloc cliquable qui affiche des informations.
    ------------------------------------------------------------------------- */
-/* Si l'image n'est pas dispo, on utilise des blocs cliquables */
+
+/* Chaque région est une boîte blanche avec une bordure verte à gauche.
+   Cette bordure gauche (border-left) est une convention de design populaire
+   pour indiquer visuellement que c'est une catégorie ou un élément sélectionnable.
+   cursor: pointer change le curseur en "main" quand on passe dessus,
+   signalant que l'élément est cliquable — exactement comme un lien. */
 .region-block {
   background-color: var(--color-light);
   padding: 20px;
@@ -240,76 +370,114 @@ a {
   transition: background-color 0.3s ease;
 }
 
-/* Indique visuellement qu'on peut cliquer */
+/* Au survol d'une région, on change le fond en beige sable.
+   C'est un retour visuel simple et efficace qui indique à l'utilisateur
+   que sa souris est sur un élément interactif. */
 .region-block:hover {
   background-color: var(--color-sand);
 }
 
 /* -------------------------------------------------------------------------
    9. FOOTER (Pied de page)
+   -------------------------------------------------------------------------
+   Le pied de page apparaît en bas de chaque page. Il contient des liens
+   secondaires, les informations de contact, les réseaux sociaux, etc.
    ------------------------------------------------------------------------- */
-/* Style du pied de page : sombre et sérieux */
+
+/* Style du pied de page : fond sombre et sérieux pour ancrer la page.
+   Le contraste entre le fond sombre du footer et le fond clair du contenu
+   aide l'utilisateur à percevoir qu'il est arrivé au bas de la page. */
 .footer-custom {
   background-color: var(--color-dark);
   color: var(--color-light);
+  /* padding-top: 50px pour l'espace en haut, padding-bottom: 20px en bas */
   padding: 50px 0 20px 0;
 }
 
-/* Les liens dans le footer doivent être blancs */
+/* Les liens dans le footer doivent être gris clair (#ccc) pour rester
+   lisibles sur fond sombre, tout en étant légèrement moins saillants
+   que le texte principal blanc. */
 .footer-custom a {
   color: #ccc;
   transition: color 0.3s;
 }
 
-/* Au survol, ils deviennent blancs purs */
+/* Au survol des liens du footer, ils passent au blanc pur.
+   Ce changement de couleur léger mais net guide l'utilisateur. */
 .footer-custom a:hover {
   color: var(--color-light);
 }
 
 /* -------------------------------------------------------------------------
    10. BOUTON RETOUR EN HAUT (Back to top)
+   -------------------------------------------------------------------------
+   Ce bouton flottant apparaît quand l'utilisateur descend dans la page.
+   Il permet de remonter tout en haut d'un seul clic, sans effort.
+   Son apparition/disparition est gérée par le fichier JavaScript (script.js).
    ------------------------------------------------------------------------- */
-/* Position fixe en bas à droite */
+
+/* Le bouton est positionné de façon fixe (il reste visible même quand on scrolle)
+   en bas à droite de l'écran. z-index: 1000 garantit qu'il est toujours
+   au premier plan, devant tous les autres éléments de la page.
+   display: none = il est caché au démarrage ; le JS le montre quand nécessaire. */
 #backToTopBtn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  display: none; /* Masqué par défaut (géré par JS) */
+  /* Caché par défaut — JavaScript le montrera après 300px de défilement */
+  display: none;
   background-color: var(--color-secondary);
   color: white;
   border: none;
-  border-radius: 50%; /* Bouton rond */
+  /* border-radius: 50% crée un cercle parfait (le bouton est carré 50x50px,
+     avec des coins arrondis à 50% il devient un disque) */
+  border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 20px;
+  /* cursor: pointer change le curseur en main pour indiquer qu'on peut cliquer */
   cursor: pointer;
+  /* z-index élevé pour s'assurer que ce bouton est toujours visible */
   z-index: 1000;
   transition: background-color 0.3s;
 }
 
-/* Au survol du bouton retour en haut */
+/* Au survol du bouton retour en haut, il passe du vert au rouge marocain.
+   Ce changement de couleur est un retour visuel clair avant le clic. */
 #backToTopBtn:hover {
   background-color: var(--color-primary);
 }
 
 /* =========================================================================
-   FIN DU FICHIER CSS
+   FIN DES STYLES PRINCIPAUX
    ========================================================================= */
 
-/* --- EN-TÊTE DE PAGE MODERNE (Subpages) --- */
+/* --- EN-TÊTE DE PAGE MODERNE (Subpages) ---
+   Cet en-tête est utilisé sur les pages secondaires (ex: Destinations,
+   Contact, Carte...). Il remplace la grande image hero par un dégradé
+   coloré avec des décorations géométriques — plus léger à charger ! */
 .page-header-modern {
-    /* Une couleur unique et élégante pour l'arrière-plan (Dégradé de rouge marocain) */
+    /* Dégradé diagonal de rouge marocain clair à rouge foncé.
+       "135deg" est l'angle du dégradé (du coin haut-gauche au coin bas-droit). */
     background: linear-gradient(135deg, var(--color-primary) 0%, #8a1a1f 100%);
+    /* Grand espacement en haut (100px) pour tenir compte de la navbar fixe */
     padding: 100px 0 60px;
+    /* Marge en bas pour séparer visuellement l'en-tête du reste du contenu */
     margin-bottom: 50px;
+    /* Bords arrondis uniquement en bas à gauche et à droite : effet de "vague" moderne */
     border-radius: 0 0 50px 50px;
     position: relative;
+    /* overflow: hidden cache les décorations circulaires qui débordent */
     overflow: hidden;
     color: white;
-    box-shadow: 0 10px 20px rgba(193, 39, 45, 0.15); /* Ombre colorée */
+    /* Ombre colorée (rouge semi-transparente) pour un effet de profondeur */
+    box-shadow: 0 10px 20px rgba(193, 39, 45, 0.15);
 }
 
-/* Décorations modernes (cercles en fond) */
+/* Décorations modernes : deux cercles flous en fond créés avec ::before et ::after.
+   Ces pseudo-éléments sont des "éléments virtuels" insérés via CSS,
+   sans avoir besoin d'ajouter quoi que ce soit dans le HTML.
+   Le premier cercle est positionné en haut à droite de l'en-tête. */
 .page-header-modern::before {
     content: '';
     position: absolute;
@@ -317,9 +485,14 @@ a {
     right: -10%;
     width: 300px;
     height: 300px;
+    /* radial-gradient crée un cercle dégradé du blanc transparent vers le transparent */
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
 }
+
+/* Le deuxième cercle décoratif est positionné en bas à gauche.
+   Ces deux cercles ensemble donnent de la profondeur et du dynamisme
+   au fond, sans alourdir la page avec des images supplémentaires. */
 .page-header-modern::after {
     content: '';
     position: absolute;
@@ -331,17 +504,70 @@ a {
     border-radius: 50%;
 }
 
+/* Le titre principal (h1) de l'en-tête de sous-page.
+   z-index: 1 le place devant les cercles décoratifs (::before et ::after).
+   text-shadow ajoute une légère ombre sous le texte blanc pour le rendre
+   lisible même si le fond est clair par endroits. */
 .page-header-modern h1 {
     font-weight: 800;
     position: relative;
     z-index: 1;
-    color: white !important; /* Le texte devient blanc pour contraster avec le fond */
+    /* !important surcharge Bootstrap qui pourrait imposer une autre couleur */
+    color: white !important;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
+
+/* Le texte descriptif (paragraphe) sous le titre.
+   rgba(255, 255, 255, 0.9) = blanc à 90% d'opacité : légèrement transparent
+   pour créer une hiérarchie visuelle (le titre est plus "fort" que le sous-titre).
+   line-height: 1.7 améliore la lisibilité en espaçant les lignes. */
 .page-header-modern p {
-    color: rgba(255, 255, 255, 0.9); /* Texte en blanc légèrement transparent */
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.15rem;
     line-height: 1.7;
     position: relative;
     z-index: 1;
 }
+
+/* -------------------------------------------------------------------------
+   11. BOUTONS DE LANGUE (Sélecteur FR / EN / AR)
+   -------------------------------------------------------------------------
+   Ces petits boutons permettent à l'utilisateur de changer la langue du site.
+   Ils sont discrets par défaut et se colorent quand ils sont actifs.
+   ------------------------------------------------------------------------- */
+
+/* État normal des boutons de langue : fond transparent, texte gris foncé.
+   Ils sont intentionnellement discrets pour ne pas distraire l'attention
+   du contenu principal de la page. */
+.lang-btn {
+    font-weight: bold;
+    color: #333;
+    background: transparent;
+    /* border: 1px solid transparent = un espace réservé pour la bordure,
+       mais invisible — cela évite un "saut" de mise en page quand la bordure apparaît */
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.1rem;
+    transition: all 0.3s ease;
+}
+
+/* Au survol d'un bouton de langue, le texte passe au rouge marocain.
+   C'est un signal clair que ce bouton est cliquable et fonctionnel. */
+.lang-btn:hover {
+    color: var(--maroc-red);
+}
+
+/* Le bouton de langue actuellement actif (langue sélectionnée) :
+   fond rouge marocain, texte blanc, coins légèrement arrondis.
+   Cela indique clairement à l'utilisateur quelle langue est en cours d'utilisation. */
+.lang-btn.active {
+    background-color: var(--maroc-red);
+    color: white;
+    border-radius: 4px;
+}
+
+/* =========================================================================
+   FIN DU FICHIER CSS
+   Toute modification doit respecter la charte graphique marocaine :
+   Rouge #c1272d | Vert #006233 | Sable #f4f1ea
+   ========================================================================= */

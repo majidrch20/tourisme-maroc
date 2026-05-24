@@ -1,52 +1,68 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- ==========================================
+         SECTION HEAD : Configuration de la page
+         Comme pour toutes les pages du site, on définit ici le charset,
+         le viewport pour le responsive, le titre de l'onglet,
+         et on importe les bibliothèques CSS nécessaires.
+         ========================================== -->
+
     <!-- Méta-données de base -->
     <meta charset="UTF-8">
+    <!-- Cette ligne est essentielle pour que le site s'affiche correctement sur téléphone et tablette -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations - Explore Morocco™</title>
     
     <!-- Liens CSS -->
+    <!-- Bootstrap pour la mise en page et le design responsive -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome pour les icônes utilisées dans les boutons et la navigation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre propre fichier CSS pour personnaliser les couleurs et le style du site -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ==========================================
          HEADER & NAVIGATION
+         Cette barre de navigation est identique sur toutes les pages du site
+         pour que l'utilisateur puisse toujours retrouver son chemin facilement.
+         La classe "fixed-top" la maintient visible même en faisant défiler la page.
          ========================================== -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
+            <!-- Logo cliquable qui ramène toujours à la page d'accueil -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo-maroc.png" alt="Logo" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
-                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                    <span class="official-text" data-i18n="nav_subtitle">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
+                <!-- Petit drapeau du Maroc affiché à côté du nom -->
                 <img src="images/flag_of_morocco.svg" alt="Drapeau" width="30" height="20" class="ms-2">
             </a>
             
+            <!-- Bouton hamburger pour afficher le menu sur mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
+            <!-- Menu de navigation qui se réduit sur les petits écrans -->
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <!-- Lien vers la page d'accueil -->
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_accueil">Accueil</a></li>
                     <!-- Ajout de la classe "active" pour indiquer qu'on est sur cette page -->
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="destinations.html">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gastronomie.html">Gastronomie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="carte.html">Carte</a></li>
+                    <!-- Ce lien est mis en surbrillance car l'utilisateur est actuellement sur la page Destinations -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gastronomie.html" data-i18n="nav_gastronomie">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carte.html" data-i18n="nav_carte">Carte</a></li>
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a></li>
                     
-                    <li class="nav-item border-start ms-2 ps-2">
-                        <span class="nav-link" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">
-                            <span class="text-danger">FR</span> | EN | AR
-                        </span>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -54,30 +70,46 @@
 
     <!-- ==========================================
          EN-TÊTE DE LA PAGE (Page Header)
+         Cette section sert d'introduction à la page.
+         Elle affiche un grand titre et un texte de présentation
+         pour expliquer au visiteur ce qu'il va trouver sur cette page.
          ========================================== -->
-    <section class="bg-light py-5 mt-4 border-bottom">
-        <div class="container text-center py-4">
-            <h1 class="display-4 fw-bold text-danger">Les plus belles destinations du Maroc</h1>
-            <p class="lead text-muted w-75 mx-auto mt-3">Du nord au sud, le Maroc propose une diversité incroyable : des villes historiques impériales, des plages étendues, des montagnes majestueuses et la magie silencieuse du désert du Sahara.</p>
+    <!-- Cette section utilise le style "page-header-modern" commun à toutes les pages secondaires du site -->
+    <!-- L'animation "fade-in-up" fait apparaître le titre depuis le bas au chargement de la page -->
+    <section class="page-header-modern fade-in-up">
+        <div class="container text-center">
+            <!-- Titre principal de la page, en blanc pour contraster avec le fond rouge dégradé -->
+            <h1 class="display-4 mb-3" data-i18n="dest_title">Les plus belles destinations du Maroc</h1>
+            <!-- Sous-titre descriptif, centré et limité à 75% de la largeur pour être plus lisible -->
+            <p class="lead w-75 mx-auto delay-1">Du nord au sud, le Maroc propose une diversité incroyable : des villes historiques impériales, des plages étendues, des montagnes majestueuses et la magie silencieuse du désert du Sahara.</p>
         </div>
     </section>
 
     <!-- ==========================================
          GRILLE DES DESTINATIONS (Bootstrap Grid)
+         Cette section affiche toutes les destinations sous forme de cartes.
+         On utilise la grille Bootstrap pour que les cartes s'organisent
+         automatiquement en 1, 2 ou 3 colonnes selon la taille de l'écran.
+         Chaque carte contient une image, un nom de ville, une description
+         et un bouton qui ouvre une fenêtre modale avec plus de détails.
          ========================================== -->
     <section class="section-padding">
         <div class="container">
             <!-- row-cols-md-3 crée automatiquement 3 colonnes sur tablette/écran moyen -->
+            <!-- Sur mobile (row-cols-1) : 1 seule colonne, sur tablette (md-2) : 2, sur grand écran (lg-3) : 3 -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
                 <!-- Destination 1: Marrakech -->
+                <!-- Chaque carte suit la même structure : image en haut, texte en bas, bouton à la fin -->
                 <div class="col">
                     <div class="card card-custom h-100">
+                        <!-- Cette image est utilisée pour montrer une destination touristique du Maroc -->
                         <img src="images/marrakech.jpg" class="card-img-top" alt="Marrakech">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Marrakech</h5>
                             <p class="card-text flex-grow-1">La ville ocre vous émerveillera avec la place Jemaa el-Fna, ses souks colorés, ses jardins paisibles et ses palais majestueux. Une ambiance traditionnelle incomparable.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <!-- Ce bouton ouvre la fenêtre modale Bootstrap avec les détails de la destination -->
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -89,7 +121,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Fès</h5>
                             <p class="card-text flex-grow-1">Capitale spirituelle et culturelle. Perdez-vous dans son immense médina, admirez le travail de l'artisanat local et visitez la célèbre université Al Quaraouiyine.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +133,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Rabat</h5>
                             <p class="card-text flex-grow-1">Capitale du Maroc, mêlant avec harmonie ville moderne et patrimoine historique. Ne manquez pas la kasbah des Oudayas et la Tour Hassan.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +145,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Casablanca</h5>
                             <p class="card-text flex-grow-1">Cœur économique du pays. Admirez la gigantesque mosquée Hassan II posée sur l'océan, promenez-vous sur la Corniche et découvrez son architecture moderne.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -125,7 +157,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Chefchaouen</h5>
                             <p class="card-text flex-grow-1">Nichée dans les montagnes du Rif, la célèbre "ville bleue" offre un calme absolu et des ruelles pittoresques, idéales pour la photographie.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -137,7 +169,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Essaouira</h5>
                             <p class="card-text flex-grow-1">La cité des alizés. Une ambiance détendue avec sa plage prisée des surfeurs, sa charmante médina blanche et bleue, son port de pêche et la musique gnaoua.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -149,7 +181,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Tanger</h5>
                             <p class="card-text flex-grow-1">La porte de l'Afrique. Découvrez son port mythique, le Cap Spartel où se rencontrent la Méditerranée et l'Atlantique, et les mystérieuses grottes d'Hercule.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -161,7 +193,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Agadir</h5>
                             <p class="card-text flex-grow-1">Première station balnéaire du Maroc. Profitez d'un ensoleillement exceptionnel toute l'année sur sa grande plage de sable fin.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +205,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Merzouga</h5>
                             <p class="card-text flex-grow-1">La porte du grand sud. Partez à dos de dromadaire sur les impressionnantes dunes de l'Erg Chebbi et dormez en bivouac sous un ciel étoilé.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -185,7 +217,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold text-danger">Ouarzazate</h5>
                             <p class="card-text flex-grow-1">Le "Hollywood de l'Afrique". Visitez ses kasbahs grandioses, ses célèbres studios de cinéma et le village classé de l'Aït Ben Haddou.</p>
-                            <a href="#" class="btn btn-outline-danger mt-3">Découvrir</a>
+                            <button type="button" class="btn btn-outline-danger mt-3 discover-btn" data-bs-toggle="modal" data-bs-target="#cityModal"><i class="fas fa-search me-2"></i>Découvrir</button>
                         </div>
                     </div>
                 </div>
@@ -195,14 +227,61 @@
     </section>
 
     <!-- ==========================================
-         FOOTER
+         MODAL POUR LES DESTINATIONS
+         La fenêtre modale s'ouvre quand l'utilisateur clique sur "Découvrir".
+         Elle affiche dynamiquement l'image, le nom et la description de la ville choisie.
+         Le JavaScript en bas de page s'occupe de remplir la modale avec les bonnes informations.
+         ========================================== -->
+    <div class="modal fade" id="cityModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- En-tête de la modale avec un fond rouge et un bouton de fermeture -->
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="cityModalLabel" data-i18n="modal_dest">Destination</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- Corps de la modale : l'image et la description sont remplis dynamiquement par le JS -->
+          <div class="modal-body text-center">
+            <img id="modalImage" src="" class="img-fluid rounded mb-3 shadow-sm" alt="Ville" style="max-height: 250px; object-fit: cover; width: 100%;">
+            <p id="modalDesc" class="fs-5 text-muted"></p>
+          </div>
+          <!-- Bas de la modale avec des boutons de navigation vers d'autres pages du site -->
+          <div class="modal-footer justify-content-center">
+            <a href="activites.html" class="btn btn-danger">Voir les activités</a>
+            <a href="carte.html" class="btn btn-outline-secondary" data-i18n="modal_map">Voir sur la carte</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script JavaScript pour remplir la modale avec les données de la carte cliquée -->
+    <!-- Quand on clique sur "Découvrir", ce script récupère l'image, le titre et le texte de la carte -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          document.querySelectorAll(".discover-btn").forEach(btn => {
+              btn.addEventListener("click", function() {
+                  const card = this.closest(".card");
+                  document.getElementById("cityModalLabel").innerText = "Bienvenue à " + card.querySelector(".card-title").innerText;
+                  document.getElementById("modalDesc").innerText = card.querySelector(".card-text").innerText;
+                  document.getElementById("modalImage").src = card.querySelector("img").src;
+              });
+          });
+      });
+    </script>
+
+    <!-- ==========================================
+         FOOTER (Pied de page)
+         Le footer contient les informations de contact et les liens des réseaux sociaux.
+         Il est identique sur toutes les pages pour garder une cohérence visuelle.
          ========================================== -->
     <footer class="footer-custom mt-5">
         <div class="container">
             <div class="row">
+                <!-- Colonne 1 : Présentation du site et icônes des réseaux sociaux -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
+                    <!-- Liens vers les réseaux sociaux officiels de Visit Morocco -->
                     <div>
                         <a href="#" class="me-3 fs-5"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
@@ -210,8 +289,9 @@
                         <a href="#" class="fs-5"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                <!-- Colonne 2 : Liens rapides vers les principales pages du site -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_links">Liens Rapides</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="destinations.html">Destinations</a></li>
                         <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
@@ -219,16 +299,18 @@
                         <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
                     </ul>
                 </div>
+                <!-- Colonne 3 : Informations de contact avec adresse, email et téléphone -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_contact">Contact Officiel</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue Mohammed V, Rabat, Maroc</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> contact@exploremorocco.ma</li>
                         <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> +212 500 000 000</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2" data-i18n="btn_contact">Nous contacter</a>
                 </div>
             </div>
+            <!-- Séparateur horizontal et mention de copyright en bas du footer -->
             <hr class="border-secondary mt-4">
             <div class="text-center small pb-2">
                 &copy; 2026 Explore Morocco™ - Tous droits réservés. Projet étudiant.
@@ -236,9 +318,12 @@
         </div>
     </footer>
 
+    <!-- Bouton flottant pour remonter rapidement en haut de la page -->
     <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- Script Bootstrap : nécessaire pour que la modale et le menu mobile fonctionnent -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Notre script personnalisé pour le comportement général du site (ex: bouton retour en haut) -->
     <script src="js/script.js"></script>
 </body>
 </html>

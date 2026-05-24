@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <!-- Méta-données -->
@@ -7,9 +7,13 @@
     <title>Contactez-nous - Explore Morocco™</title>
     
     <!-- CSS -->
+    <!-- On utilise Bootstrap pour que le site s'adapte à toutes les tailles d'écran -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome nous fournit les icônes (enveloppe, téléphone, localisation...) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre feuille de style personnalisée pour les couleurs et la mise en page du projet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- L'icône du site qui apparaît dans l'onglet du navigateur -->
     <link rel="icon" type="image/png" href="images/logo-maroc.png">
 </head>
 <body>
@@ -17,31 +21,38 @@
     <!-- ==========================================
          HEADER
          ========================================== -->
+    <!-- Cette partie représente la barre de navigation principale du site -->
+    <!-- La classe "fixed-top" fait que la navbar reste visible même quand on fait défiler la page -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
+            <!-- Le logo et le nom du site, qui redirigent vers la page d'accueil au clic -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo-maroc.png" alt="Logo" width="100" height="100" class="me-2">
                 <div>
                     Explore Morocco™
-                    <span class="official-text">Site officiel de l'Agence Nationale du Tourisme</span>
+                    <span class="official-text" data-i18n="nav_subtitle">Site officiel de l'Agence Nationale du Tourisme</span>
                 </div>
+                <!-- Le drapeau du Maroc pour l'identité visuelle du site -->
                 <img src="images/flag_of_morocco.svg" alt="Drapeau" width="30" height="20" class="ms-2">
             </a>
             
+            <!-- Ce bouton apparaît uniquement sur mobile pour afficher/masquer le menu -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
+            <!-- La liste de tous les liens de navigation vers les différentes pages du site -->
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gastronomie.html">Gastronomie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="carte.html">Carte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gastronomie.html" data-i18n="nav_gastronomie">Gastronomie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carte.html" data-i18n="nav_carte">Carte</a></li>
                     <li class="nav-item"><a class="nav-link" href="experiences.html">Expériences</a></li>
                     <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
                     <!-- Lien actif -->
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
+                    <!-- La classe "active" indique à l'utilisateur qu'il est actuellement sur la page Contact -->
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -50,9 +61,10 @@
     <!-- ==========================================
          EN-TÊTE DE LA PAGE
          ========================================== -->
+    <!-- Cette section introduit la page avec un titre et une courte invitation à contacter l'équipe -->
     <section class="page-header-modern fade-in-up">
         <div class="container text-center">
-            <h1 class="display-4 mb-3">Contactez-nous</h1>
+            <h1 class="display-4 mb-3" data-i18n="contact_title">Contactez-nous</h1>
             <p class="lead w-75 mx-auto delay-1">Vous préparez un voyage au Maroc ou vous avez besoin d'informations touristiques ? Envoyez-nous votre message, notre équipe est à votre écoute.</p>
         </div>
     </section>
@@ -60,56 +72,69 @@
     <!-- ==========================================
          FORMULAIRE ET COORDONNÉES
          ========================================== -->
+    <!-- Cette section est divisée en deux colonnes : le formulaire à gauche et les coordonnées à droite -->
     <section class="section-padding">
         <div class="container">
             <div class="row g-5">
                 
                 <!-- Colonne de gauche : Formulaire de contact (validé par JavaScript) -->
+                <!-- Ce formulaire permet à l'utilisateur d'envoyer un message à l'équipe -->
                 <div class="col-lg-7">
                     <div class="bg-white p-5 rounded shadow-sm border">
-                        <h3 class="mb-4 text-danger border-bottom pb-2">Envoyer un message</h3>
+                        <h3 class="mb-4 text-danger border-bottom pb-2" data-i18n="contact_form_title">Envoyer un message</h3>
                         
                         <!-- Zone d'alerte pour les messages de succès/erreur JS -->
+                        <!-- Quand l'utilisateur soumet le formulaire, le JavaScript affiche un message ici -->
                         <div id="formAlert"></div>
                         
                         <!-- Le formulaire -->
+                        <!-- L'id "contactForm" est utilisé par le JavaScript pour intercepter la soumission -->
                         <form id="contactForm">
+                            <!-- Ligne avec deux champs côte à côte : nom et email -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="nom" class="form-label">Nom complet *</label>
-                                    <input type="text" class="form-control" id="nom" placeholder="Votre nom">
+                                    <!-- Champ pour le nom complet de l'utilisateur -->
+                                    <label for="nom" class="form-label" data-i18n="contact_name">Nom complet *</label>
+                                    <input type="text" class="form-control" id="nom" placeholder="Votre nom" data-i18n="form_name_ph">
                                 </div>
                                 <div class="col-md-6 mt-3 mt-md-0">
-                                    <label for="email" class="form-label">Adresse email *</label>
+                                    <!-- Champ pour l'adresse email, le type="email" force un format valide -->
+                                    <label for="email" class="form-label" data-i18n="contact_email">Adresse email *</label>
                                     <input type="email" class="form-control" id="email" placeholder="nom@exemple.com">
                                 </div>
                             </div>
                             
+                            <!-- Ligne avec deux champs : pays de résidence et sujet du message -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
+                                    <!-- Menu déroulant pour choisir le pays de résidence de l'utilisateur -->
                                     <label for="pays" class="form-label">Pays de résidence</label>
                                     <select class="form-select" id="pays">
-                                        <option selected>Choisir un pays...</option>
+                                        <option selected data-i18n="select_country">Choisir un pays...</option>
                                         <option value="France">France</option>
                                         <option value="Belgique">Belgique</option>
                                         <option value="Suisse">Suisse</option>
                                         <option value="Canada">Canada</option>
                                         <option value="Maroc">Maroc</option>
-                                        <option value="Autre">Autre</option>
+                                        <option value="Autre" data-i18n="country_other">Autre</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mt-3 mt-md-0">
-                                    <label for="sujet" class="form-label">Sujet</label>
-                                    <input type="text" class="form-control" id="sujet" placeholder="Objet de votre demande">
+                                    <!-- Champ texte pour indiquer le sujet du message -->
+                                    <label for="sujet" class="form-label" data-i18n="contact_subject">Sujet</label>
+                                    <input type="text" class="form-control" id="sujet" placeholder="Objet de votre demande" data-i18n="form_subject_ph">
                                 </div>
                             </div>
                             
+                            <!-- Zone de texte pour le message principal -->
+                            <!-- "rows=5" définit la hauteur de la zone de texte -->
                             <div class="mb-4">
-                                <label for="message" class="form-label">Votre message *</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                                <label for="message" class="form-label" data-i18n="contact_message">Votre message *</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Comment pouvons-nous vous aider ?" data-i18n="form_msg_ph"></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary-custom w-100 fs-5"><i class="fas fa-paper-plane me-2"></i> Envoyer</button>
+                            <!-- Bouton d'envoi du formulaire, prend toute la largeur avec "w-100" -->
+                            <button type="submit" class="btn btn-primary-custom w-100 fs-5"><i class="fas fa-paper-plane me-2"></i> <span data-i18n="contact_send">Envoyer</span></button>
                         </form>
                     </div>
                 </div>
@@ -118,16 +143,19 @@
                 <div class="col-lg-5">
                     
                     <!-- Coordonnées fictives -->
+                    <!-- Cette boîte affiche l'adresse, l'email et le téléphone de l'agence -->
                     <div class="bg-light p-5 rounded shadow-sm border mb-4">
                         <h4 class="mb-4 text-dark border-bottom pb-2">Nos Coordonnées</h4>
                         <ul class="list-unstyled fs-5">
+                            <!-- Adresse physique avec icône de localisation -->
                             <li class="mb-3 d-flex align-items-start">
                                 <i class="fas fa-map-marker-alt text-danger mt-1 me-3 fs-4"></i>
                                 <div>
-                                    <strong>Adresse Principale</strong><br>
+                                    <strong data-i18n="contact_address_label">Adresse Principale</strong><br>
                                     <span class="text-muted">Avenue de la Palestine Mhanech I<br>Tétouan, Maroc</span>
                                 </div>
                             </li>
+                            <!-- Adresse email avec icône enveloppe -->
                             <li class="mb-3 d-flex align-items-start">
                                 <i class="fas fa-envelope text-success mt-1 me-3 fs-4"></i>
                                 <div>
@@ -135,6 +163,7 @@
                                     <span class="text-muted">ensate@uae.ac.ma</span>
                                 </div>
                             </li>
+                            <!-- Numéro de téléphone avec icône téléphone -->
                             <li class="mb-3 d-flex align-items-start">
                                 <i class="fas fa-phone text-primary mt-1 me-3 fs-4"></i>
                                 <div>
@@ -154,12 +183,15 @@
     <!-- ==========================================
          FOOTER
          ========================================== -->
+    <!-- Le footer contient les informations de contact, les liens rapides et les réseaux sociaux -->
     <footer class="footer-custom mt-5">
         <div class="container">
             <div class="row">
+                <!-- Première colonne : présentation du site et icônes des réseaux sociaux -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold text-white mb-3">Explore Morocco™</h5>
                     <p class="small">Site officiel de l'Agence Nationale du Tourisme. Retrouvez toutes les informations nécessaires pour préparer votre voyage au Maroc.</p>
+                    <!-- Liens vers les réseaux sociaux qui s'ouvrent dans un nouvel onglet -->
                     <div>
                         <a href="https://www.facebook.com/VisitMoroccoEN" target="_blank" class="me-3 fs-5" title="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/visit_morocco_/" target="_blank" class="me-3 fs-5" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -167,8 +199,9 @@
                         <a href="https://www.youtube.com/user/visitmorocco" target="_blank" class="fs-5" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                <!-- Deuxième colonne : liens rapides vers les autres pages du site -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Liens Rapides</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_links">Liens Rapides</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="destinations.html">Destinations</a></li>
                         <li class="mb-2"><a href="gastronomie.html">Gastronomie</a></li>
@@ -176,26 +209,31 @@
                         <li class="mb-2"><a href="experiences.html">Expériences des voyageurs</a></li>
                     </ul>
                 </div>
+                <!-- Troisième colonne : coordonnées de contact et bouton vers la page contact -->
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">Contact Officiel</h5>
+                    <h5 class="fw-bold text-white mb-3" data-i18n="footer_contact">Contact Officiel</h5>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Avenue de la Palestine Mhanech I, Tétouan, Maroc</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i> ensate@uae.ac.ma</li>
                         <li class="mb-2"><i class="fas fa-phone me-2 text-danger"></i> 05 39 688 027</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-sm mt-2" data-i18n="btn_contact">Nous contacter</a>
                 </div>
             </div>
             <hr class="border-secondary mt-4">
+            <!-- Mention du copyright en bas de page -->
             <div class="text-center small pb-2">
                 &copy; 2026 Explore Morocco™ - Tous droits réservés. Projet étudiant.
             </div>
         </div>
     </footer>
 
+    <!-- Bouton "retour en haut" qui apparaît quand l'utilisateur fait défiler la page vers le bas -->
     <button id="backToTopBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- Scripts JavaScript chargés à la fin du body pour ne pas ralentir l'affichage de la page -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Le script.js gère la validation du formulaire et l'affichage du message de confirmation -->
     <script src="js/script.js"></script>
 </body>
 </html>
